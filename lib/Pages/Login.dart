@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kompanions/Pages/Register.dart';
-import './Home.dart';
-import './Register.dart';
-import '../Widgets/CustomText.dart';
-import '../Widgets/CustomButton.dart';
-import '../Widgets/CustomTextField.dart';
+import 'package:kompanions/Pages/Home.dart';
+import 'package:kompanions/Widgets/CustomText.dart';
+import 'package:kompanions/Widgets/CustomButton.dart';
+import 'package:kompanions/Widgets/CustomTextField.dart';
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);

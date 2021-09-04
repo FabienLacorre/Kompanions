@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import './Home.dart';
-import './Login.dart';
-import '../Widgets/CustomText.dart';
-import '../Widgets/CustomButton.dart';
-import '../Widgets/CustomTextField.dart';
+import 'package:kompanions/pages/Home.dart';
+import 'package:kompanions/Pages/Login.dart';
+import 'package:kompanions/Widgets/CustomText.dart';
+import 'package:kompanions/Widgets/CustomButton.dart';
+import 'package:kompanions/Widgets/CustomTextField.dart';
 
 class Register extends StatefulWidget {
   Register({Key? key}) : super(key: key);

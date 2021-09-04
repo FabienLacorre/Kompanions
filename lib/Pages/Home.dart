@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
-import "../Components/KompanionCard.dart";
-// import '../Widgets/CustomText.dart';
-// import './Login.dart';
+import "package:kompanions/Components/KompanionCard.dart";
+import "package:kompanions/Pages/AddKompanion.dart";
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -12,7 +11,7 @@ class Home extends StatefulWidget {
 
 class _Home extends State<Home> {
   handlerAddNewKompanion() {
-    Route route = MaterialPageRoute(builder: (context) => Home());
+    Route route = MaterialPageRoute(builder: (context) => AddKompanion());
     Navigator.pushReplacement(context, route);
   }
 
