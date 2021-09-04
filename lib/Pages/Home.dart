@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 class _Home extends State<Home> {
   handlerAddNewKompanion() {
     Route route = MaterialPageRoute(builder: (context) => AddKompanion());
-    Navigator.pushReplacement(context, route);
+    Navigator.push(context, route);
   }
 
   @override
@@ -27,37 +27,29 @@ class _Home extends State<Home> {
       body: Center(
         child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
-            child: Column(
-              children: [
-                Padding(
-                    padding: EdgeInsets.all(16),
-                    child: CustomButton(
-                      content: "Ajouter un kompanion",
-                      handler: this.handlerAddNewKompanion,
-                    )),
-                SizedBox(height: 16),
-                Padding(
-                  padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                  child: KompanionCard(
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  CustomButton(
+                    content: "Ajouter un kompanion",
+                    handler: this.handlerAddNewKompanion,
+                  ),
+                  SizedBox(height: 8),
+                  KompanionCard(
                       title: "Capuche",
                       subtitle: "Lapin bélier",
                       photoSrc: "assets/capuche.jpg"),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                  child: KompanionCard(
+                  KompanionCard(
                       title: "Hoddie",
                       subtitle: "Chat Européen",
                       photoSrc: "assets/hoddie.jpg"),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                  child: KompanionCard(
+                  KompanionCard(
                       title: "P'tit pote",
                       subtitle: "Poisson rouge",
                       photoSrc: "assets/ptipote.jpg"),
-                ),
-              ],
+                ],
+              ),
             )),
       ),
     );
