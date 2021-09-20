@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import "Pages/Login.dart";
-import "Pages/Home.dart";
+// import "Pages/Home.dart";
 
 void main() {
   runApp(KompanionsApp());
@@ -14,8 +14,8 @@ class KompanionsApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: Login(),
-      home: Home(),
+      home: Login(),
+      // home: Home(),
     );
   }
 }

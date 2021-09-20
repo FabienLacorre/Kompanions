@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kompanions/Constants/Colors.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import "package:kompanions/Components/KompanionCard.dart";
 import "package:kompanions/Pages/AddKompanion.dart";
+import "package:kompanions/Widgets/BottomBar.dart";
+import 'package:kompanions/Widgets/TopBar.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -18,12 +21,10 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Icon(Icons.more_vert),
-        ],
-        title: Text("Home"),
+      appBar: TopBar(
+        title: "Home",
       ),
+      bottomNavigationBar: BottomBar(),
       body: Center(
         child: SingleChildScrollView(
             scrollDirection: Axis.vertical,

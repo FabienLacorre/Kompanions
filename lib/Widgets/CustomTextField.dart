@@ -6,7 +6,6 @@ class _CustomTextField extends State<CustomTextField> {
     return TextField(
       obscureText: false,
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
         labelText: this.widget.placeHolder,
       ),
     );
