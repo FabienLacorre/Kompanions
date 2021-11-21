@@ -18,21 +18,3 @@ class PetRequest {
     }
   }
 }
-
-// FutureBuilder(
-//     future: futureAllPet,
-//     builder: (BuildContext context, AsyncSnapshot snapshot) {
-//       print(snapshot.data);
-//       if (snapshot.hasData) {
-//         return snapshot.data!.map((pet) => KompanionCard(
-//             title: "Capuche",
-//             subtitle: "Lapin bélier",
-//             photoSrc: "assets/capuche.jpg"));
-//       } else {
-//         return CustomText(
-//           content: 'Aucun kompanions',
-//           size: 16,
-//           fontWeight: FontWeight.bold,
-//         );
-//       }
-//     }),
