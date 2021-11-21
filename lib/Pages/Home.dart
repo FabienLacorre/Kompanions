@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:kompanions/Classes/Animal.dart';
+import 'package:kompanions/Classes/Pets.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import "package:kompanions/Components/KompanionCard.dart";
 import "package:kompanions/Pages/AddKompanion.dart";
