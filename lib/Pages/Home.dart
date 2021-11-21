@@ -24,8 +24,9 @@ class _Home extends State<Home> {
   }
 
   Future<Animal> fetchAnimal() async {
-    final response = await http
-        .get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1'));
+    final response =
+        await http.get(Uri.parse('http://localhost:3000/pets/dummy'));
+    print(response.body);
     if (response.statusCode == 200) {
       return Animal.fromJson(json.decode(response.body));
     } else {
