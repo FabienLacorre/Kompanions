@@ -1,13 +1,12 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:kompanions/Classes/Pets.dart';
+import 'package:kompanions/Api/PetRequest.dart';
+import 'package:kompanions/Classes/Pet.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import "package:kompanions/Components/KompanionCard.dart";
 import "package:kompanions/Pages/AddKompanion.dart";
 import "package:kompanions/Widgets/BottomBar.dart";
+import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/TopBar.dart';
-import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -16,30 +15,21 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends State<Home> {
-  late Future<Animal> futureAnimal;
+  late Future<List<Pet>> futureAllPet;
 
   handlerAddNewKompanion() {
     Route route = MaterialPageRoute(builder: (context) => AddKompanion());
     Navigator.push(context, route);
   }
 
-  Future<Animal> fetchAnimal() async {
-    final response =
-        await http.get(Uri.parse('http://localhost:3000/pets/dummy'));
-    print(response.body);
-    if (response.statusCode == 200) {
-      return Animal.fromJson(json.decode(response.body));
-    } else {
-      throw Exception('Failed to load album');
-    }
-  }
-
   @override
   void initState() {
     super.initState();
-    futureAnimal = fetchAnimal();
-    print(futureAnimal);
+    PetRequest petRequest = PetRequest();
+    futureAllPet = petRequest.fetchPets();
   }
+
+  buildPetList(BuildContext context, AsyncSnapshot snapshot) {}
 
   @override
   Widget build(BuildContext context) {
@@ -60,18 +50,31 @@ class _Home extends State<Home> {
                     handler: this.handlerAddNewKompanion,
                   ),
                   SizedBox(height: 8),
-                  KompanionCard(
-                      title: "Capuche",
-                      subtitle: "Lapin bélier",
-                      photoSrc: "assets/capuche.jpg"),
-                  KompanionCard(
-                      title: "Hoddie",
-                      subtitle: "Chat Européen",
-                      photoSrc: "assets/hoddie.jpg"),
-                  KompanionCard(
-                      title: "P'tit pote",
-                      subtitle: "Poisson rouge",
-                      photoSrc: "assets/ptipote.jpg"),
+                  FutureBuilder(
+                      future: futureAllPet,
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
+                        print(snapshot.data);
+                        if (snapshot.hasData) {
+                          // return item from list in column as list<Widget>
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: snapshot.data.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              Pet pet = snapshot.data[index];
+                              return KompanionCard(
+                                  title: pet.name,
+                                  subtitle: pet.type,
+                                  photoSrc: pet.img);
+                            },
+                          );
+                        } else {
+                          return CustomText(
+                            content: 'Aucun kompanions',
+                            size: 16,
+                            fontWeight: FontWeight.bold,
+                          );
+                        }
+                      }),
                 ],
               ),
             )),
