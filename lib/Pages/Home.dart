@@ -29,7 +29,25 @@ class _Home extends State<Home> {
     futureAllPet = petRequest.fetchPets();
   }
 
-  buildPetList(BuildContext context, AsyncSnapshot snapshot) {}
+  buildPetList(BuildContext context, AsyncSnapshot snapshot) {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: snapshot.data.length,
+      itemBuilder: (BuildContext context, int index) {
+        Pet pet = snapshot.data[index];
+        return KompanionCard(
+            title: pet.name, subtitle: pet.type, photoSrc: pet.img);
+      },
+    );
+  }
+
+  buildNoPetsFound() {
+    return CustomText(
+      content: 'Aucun kompanions',
+      size: 16,
+      fontWeight: FontWeight.bold,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,26 +71,10 @@ class _Home extends State<Home> {
                   FutureBuilder(
                       future: futureAllPet,
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
-                        print(snapshot.data);
                         if (snapshot.hasData) {
-                          // return item from list in column as list<Widget>
-                          return ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: snapshot.data.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              Pet pet = snapshot.data[index];
-                              return KompanionCard(
-                                  title: pet.name,
-                                  subtitle: pet.type,
-                                  photoSrc: pet.img);
-                            },
-                          );
+                          return buildPetList(context, snapshot);
                         } else {
-                          return CustomText(
-                            content: 'Aucun kompanions',
-                            size: 16,
-                            fontWeight: FontWeight.bold,
-                          );
+                          return buildNoPetsFound();
                         }
                       }),
                 ],
