@@ -1,20 +1,17 @@
-class Pet {
-  final int id;
-  final String name;
-  final String type;
-  final String img;
+import 'Race.dart';
 
-  Pet({
-    required this.id,
-    required this.name,
-    required this.type,
-    required this.img,
-  });
+class Pet {
+  String name;
+  String img;
+  Race? race;
+
+  Pet({this.name = "", this.race, this.img = "assets/capuche.jpg"});
 
   factory Pet.fromJson(Map<String, dynamic> json) => Pet(
-        id: json["id"],
-        name: json["name"],
-        type: json["type"],
-        img: json["img"],
+        name: json["name"] != null ? json["name"] : "",
+        race: json["race"] != null
+            ? new Race.fromJson(json["race"])
+            : new Race(name: ""),
+        img: json["img"] != null ? json["img"] : "assets/capuche.jpg",
       );
 }

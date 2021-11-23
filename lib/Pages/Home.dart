@@ -36,7 +36,7 @@ class _Home extends State<Home> {
       itemBuilder: (BuildContext context, int index) {
         Pet pet = snapshot.data[index];
         return KompanionCard(
-            title: pet.name, subtitle: pet.type, photoSrc: pet.img);
+            title: pet.name, subtitle: pet.race!.name, photoSrc: pet.img);
       },
     );
   }
@@ -71,6 +71,7 @@ class _Home extends State<Home> {
                   FutureBuilder(
                       future: futureAllPet,
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
+                        print(snapshot.data);
                         if (snapshot.hasData) {
                           return buildPetList(context, snapshot);
                         } else {
