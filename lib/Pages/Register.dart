@@ -54,15 +54,16 @@ class _Register extends State<Register> {
               SizedBox(
                 height: 15.0,
               ),
-              CustomTextField(placeHolder: "Email"),
+              CustomTextField(placeHolder: "Email", controller: null),
               SizedBox(
                 height: 15.0,
               ),
-              CustomTextField(placeHolder: "Mot de passe"),
+              CustomTextField(placeHolder: "Mot de passe", controller: null),
               SizedBox(
                 height: 15.0,
               ),
-              CustomTextField(placeHolder: "Confimation du mot de passe"),
+              CustomTextField(
+                  placeHolder: "Confimation du mot de passe", controller: null),
               SizedBox(
                 height: 15.0,
               ),

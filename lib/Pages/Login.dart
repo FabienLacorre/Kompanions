@@ -15,9 +15,20 @@ class Login extends StatefulWidget {
 }
 
 class _Login extends State<Login> {
+  TextEditingController emailController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    emailController.text = "fab.lacorre@gmail.com";
+    passwordController.text = "test";
+  }
+
   handlerConnexionValidation() async {
     UserRequest userRequest = new UserRequest();
-    var result = await userRequest.connect("fab.lacorre@gmail.com", "test");
+    var result = await userRequest.connect(
+        emailController.text, passwordController.text);
     FlutterStorage.storage.write(key: "jwt", value: result["token"]);
     Route route = MaterialPageRoute(builder: (context) => Home());
     Navigator.pushReplacement(context, route);
@@ -43,9 +54,11 @@ class _Login extends State<Login> {
                 fontWeight: FontWeight.bold,
               ),
               SizedBox(height: 16),
-              CustomTextField(placeHolder: "Email"),
+              CustomTextField(
+                  placeHolder: "Email", controller: emailController),
               SizedBox(height: 16),
-              CustomTextField(placeHolder: "Mot de passe"),
+              CustomTextField(
+                  placeHolder: "Mot de passe", controller: passwordController),
               SizedBox(height: 16),
               CustomButton(
                 content: "Se connecter",

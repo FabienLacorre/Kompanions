@@ -32,17 +32,20 @@ class _AddKompanion extends State<AddKompanion> {
                 children: [
                   CustomText(content: "Ajouter votre kompanion !"),
                   SizedBox(height: 16),
-                  CustomTextField(placeHolder: "Nom"),
+                  CustomTextField(placeHolder: "Nom", controller: null),
                   SizedBox(height: 16),
-                  CustomTextField(placeHolder: "Race"),
+                  CustomTextField(placeHolder: "Race", controller: null),
                   SizedBox(height: 16),
-                  CustomTextField(placeHolder: "Date de naissance"),
+                  CustomTextField(
+                      placeHolder: "Date de naissance", controller: null),
                   SizedBox(height: 16),
-                  CustomTextField(placeHolder: "Numéro puce / tatouage"),
+                  CustomTextField(
+                      placeHolder: "Numéro puce / tatouage", controller: null),
                   SizedBox(height: 16),
-                  CustomTextField(placeHolder: "Poid (kg)"),
+                  CustomTextField(placeHolder: "Poid (kg)", controller: null),
                   SizedBox(height: 16),
-                  CustomTextField(placeHolder: "Lieu de l'adoption"),
+                  CustomTextField(
+                      placeHolder: "Lieu de l'adoption", controller: null),
                 ],
               ),
             )),
