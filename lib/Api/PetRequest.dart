@@ -1,14 +1,22 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:kompanions/Classes/Pet.dart';
+import 'package:kompanions/FlutterStorage.dart';
 
 class PetRequest {
   Future<List<Pet>> fetchPets() async {
-    final response = await http.get(Uri.parse('http://localhost:3000/pet'));
-    print(response.body);
+    final token = await FlutterStorage.storage.read(key: 'jwt');
+    if (token == null) {
+      throw Exception('Vous devez etre connecté pour charger vos kompanions');
+    }
+    final response = await http.get(
+      Uri.parse('http://localhost:3000/pet'),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
+    );
     if (response.statusCode == 200) {
-      print("PET REQUEST: pets");
-      print(response.body);
       return json
           .decode(response.body)
           .map<Pet>((x) => Pet.fromJson(x))

@@ -3,11 +3,10 @@ import 'package:kompanions/Api/PetRequest.dart';
 import 'package:kompanions/Classes/Pet.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import "package:kompanions/Components/KompanionCard.dart";
-import "package:kompanions/Pages/AddKompanion.dart";
 import "package:kompanions/Widgets/BottomBar.dart";
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/TopBar.dart';
-import 'package:kompanions/FlutterStorage.dart';
+import "package:kompanions/Pages/AddKompanion.dart";
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -26,17 +25,8 @@ class _Home extends State<Home> {
   }
 
   handlerAddNewKompanion() async {
-    var token = await FlutterStorage.storage.read(key: 'jwt');
-    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
-    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
-    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
-    // print(await Global.storage.read(key: 'jwt'));
-    print(token);
-    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
-    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
-    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
-    // Route route = MaterialPageRoute(builder: (context) => AddKompanion());
-    // Navigator.push(context, route);
+    Route route = MaterialPageRoute(builder: (context) => AddKompanion());
+    Navigator.push(context, route);
   }
 
   buildPetList(BuildContext context, AsyncSnapshot snapshot) {
@@ -81,7 +71,6 @@ class _Home extends State<Home> {
                   FutureBuilder(
                       future: futureAllPet,
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
-                        print(snapshot.data);
                         if (snapshot.hasData) {
                           return buildPetList(context, snapshot);
                         } else {
