@@ -32,7 +32,6 @@ class _Login extends State<Login> {
       var result = await userRequest.connect(
           emailController.text, passwordController.text);
       FlutterStorage.writeJWTToken(result["token"]);
-      // FlutterStorage.storage.write(key: "jwt", value: result["token"]);
       homeRedirection(context);
     } catch (error) {
       errorSnackBar(context, error.toString());
