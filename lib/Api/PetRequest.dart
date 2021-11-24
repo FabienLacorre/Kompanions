@@ -5,7 +5,7 @@ import 'package:kompanions/FlutterStorage.dart';
 
 class PetRequest {
   Future<List<Pet>> fetchPets() async {
-    final token = await FlutterStorage.storage.read(key: 'jwt');
+    final token = await FlutterStorage.readJWTToken();
     if (token == null) {
       throw Exception('Vous devez etre connecté pour charger vos kompanions');
     }
