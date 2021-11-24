@@ -7,6 +7,7 @@ import "package:kompanions/Pages/AddKompanion.dart";
 import "package:kompanions/Widgets/BottomBar.dart";
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/TopBar.dart';
+import 'package:kompanions/FlutterStorage.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -17,16 +18,25 @@ class Home extends StatefulWidget {
 class _Home extends State<Home> {
   late Future<List<Pet>> futureAllPet;
 
-  handlerAddNewKompanion() {
-    Route route = MaterialPageRoute(builder: (context) => AddKompanion());
-    Navigator.push(context, route);
-  }
-
   @override
   void initState() {
     super.initState();
     PetRequest petRequest = PetRequest();
     futureAllPet = petRequest.fetchPets();
+  }
+
+  handlerAddNewKompanion() async {
+    var token = await FlutterStorage.storage.read(key: 'jwt');
+    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
+    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
+    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
+    // print(await Global.storage.read(key: 'jwt'));
+    print(token);
+    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
+    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
+    print("<<<<<<<<<<<<<<<<<---------------------->>>>>>>>>>>>>>>>>");
+    // Route route = MaterialPageRoute(builder: (context) => AddKompanion());
+    // Navigator.push(context, route);
   }
 
   buildPetList(BuildContext context, AsyncSnapshot snapshot) {

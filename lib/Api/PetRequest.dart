@@ -7,12 +7,14 @@ class PetRequest {
     final response = await http.get(Uri.parse('http://localhost:3000/pet'));
     print(response.body);
     if (response.statusCode == 200) {
+      print("PET REQUEST: pets");
+      print(response.body);
       return json
           .decode(response.body)
           .map<Pet>((x) => Pet.fromJson(x))
           .toList();
     } else {
-      throw Exception('Failed to load pets from API');
+      throw Exception('Echec du chargements des kompanions');
     }
   }
 }

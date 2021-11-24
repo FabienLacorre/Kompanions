@@ -4,6 +4,8 @@ import 'package:kompanions/Pages/Home.dart';
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
+import 'package:kompanions/Api/UserRequest.dart';
+import 'package:kompanions/FlutterStorage.dart';
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
@@ -13,7 +15,10 @@ class Login extends StatefulWidget {
 }
 
 class _Login extends State<Login> {
-  handlerConnexionValidation() {
+  handlerConnexionValidation() async {
+    UserRequest userRequest = new UserRequest();
+    var result = await userRequest.connect("fab.lacorre@gmail.com", "test");
+    FlutterStorage.storage.write(key: "jwt", value: result["token"]);
     Route route = MaterialPageRoute(builder: (context) => Home());
     Navigator.pushReplacement(context, route);
   }
