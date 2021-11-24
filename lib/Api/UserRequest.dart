@@ -17,7 +17,7 @@ class UserRequest {
     if (response.statusCode == 200) {
       return json.decode(response.body);
     } else {
-      throw Exception('Echec de la connexion');
+      throw Exception(response.body);
     }
   }
 }

@@ -26,12 +26,21 @@ class _Login extends State<Login> {
   }
 
   handlerConnexionValidation() async {
-    UserRequest userRequest = new UserRequest();
-    var result = await userRequest.connect(
-        emailController.text, passwordController.text);
-    FlutterStorage.storage.write(key: "jwt", value: result["token"]);
-    Route route = MaterialPageRoute(builder: (context) => Home());
-    Navigator.pushReplacement(context, route);
+    try {
+      UserRequest userRequest = new UserRequest();
+      var result = await userRequest.connect(
+          emailController.text, passwordController.text);
+      FlutterStorage.storage.write(key: "jwt", value: result["token"]);
+      Route route = MaterialPageRoute(builder: (context) => Home());
+      Navigator.pushReplacement(context, route);
+    } catch (error) {
+      final scaffold = ScaffoldMessenger.of(context);
+      scaffold.showSnackBar(
+        SnackBar(
+          content: Text(error.toString()),
+        ),
+      );
+    }
   }
 
   handlerRegisterRediction() {

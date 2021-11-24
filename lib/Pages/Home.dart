@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kompanions/Api/PetRequest.dart';
 import 'package:kompanions/Classes/Pet.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
-import "package:kompanions/Components/KompanionCard.dart";
+import 'package:kompanions/Widgets/KompanionCard.dart';
 import "package:kompanions/Widgets/BottomBar.dart";
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/TopBar.dart';
