@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kompanions/Pages/Register.dart';
 import 'package:kompanions/Pages/Home.dart';
+import 'package:kompanions/Utils/ErrorSnackBar.dart';
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
@@ -34,12 +35,7 @@ class _Login extends State<Login> {
       Route route = MaterialPageRoute(builder: (context) => Home());
       Navigator.pushReplacement(context, route);
     } catch (error) {
-      final scaffold = ScaffoldMessenger.of(context);
-      scaffold.showSnackBar(
-        SnackBar(
-          content: Text(error.toString()),
-        ),
-      );
+      errorSnackBar(context, error.toString());
     }
   }
 
