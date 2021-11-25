@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:kompanions/Constants/Colors.dart';
+// import 'package:kompanions/Constants/Colors.dart';
 
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -10,7 +10,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Color(mainColor),
+      // backgroundColor: Color(mainColor),
       actions: [
         Icon(Icons.more_vert),
       ],

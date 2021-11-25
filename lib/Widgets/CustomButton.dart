@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:kompanions/Constants/Colors.dart';
+// import 'package:kompanions/Constants/Colors.dart';
 
 class _CustomButton extends State<CustomButton> {
   @override
@@ -9,7 +9,6 @@ class _CustomButton extends State<CustomButton> {
         textStyle: const TextStyle(
           fontSize: 20,
         ),
-        primary: Color(mainColor),
         minimumSize: Size(double.infinity, 60));
     return ElevatedButton(
       style: style,

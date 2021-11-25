@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kompanions/Router/Router.dart';
-import 'package:kompanions/Utils/ErrorSnackBar.dart';
+import 'package:kompanions/Widgets/ErrorSnackBar.dart';
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';

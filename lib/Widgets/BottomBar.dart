@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:kompanions/Constants/Colors.dart';
+// import 'package:kompanions/Constants/Colors.dart';
 
 class _BottomBar extends State<BottomBar> {
   // int _selectedIndex = 0;
@@ -23,7 +23,7 @@ class _BottomBar extends State<BottomBar> {
         ),
       ],
       currentIndex: 1,
-      selectedItemColor: Color(mainColor),
+      // selectedItemColor: Color(mainColor),
       onTap: (int index) {},
     );
   }

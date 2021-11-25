@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kompanions/Theme/CustomTheme.dart';
+import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
 import 'package:kompanions/Widgets/TopBar.dart';
@@ -37,6 +39,30 @@ class _AddKompanion extends State<AddKompanion> {
     Navigator.pushReplacement(context, route);
   }
 
+  DateTime selectedDate = DateTime.now();
+
+  _selectDate(BuildContext context) async {
+    final DateTime? selected = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2010),
+      lastDate: DateTime(2025),
+      builder: (context, child) {
+        if (child != null) {
+          return Theme(
+            data: appTheme, // This will change to light theme.
+            child: child,
+          );
+        }
+        return new SizedBox.shrink();
+      },
+    );
+    if (selected != null && selected != selectedDate)
+      setState(() {
+        selectedDate = selected;
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +88,10 @@ class _AddKompanion extends State<AddKompanion> {
                       placeHolder: "Date de naissance",
                       controller: dateController),
                   SizedBox(height: 16),
+                  CustomButton(
+                    content: "Changer la date",
+                    handler: () => _selectDate(context),
+                  ),
                   CustomTextField(
                       placeHolder: "Numéro puce / tatouage",
                       controller: numPuceController),
