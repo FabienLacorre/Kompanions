@@ -67,7 +67,6 @@ class _AddKompanion extends State<AddKompanion> {
               padding: EdgeInsets.all(16),
               child: Column(
                 children: [
-                  CustomText(content: "Ajouter votre kompanion !"),
                   SizedBox(height: 16),
                   CustomTextField(
                       placeHolder: "Nom", controller: nameController),
