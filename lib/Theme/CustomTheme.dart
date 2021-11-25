@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const mainColor = 0xFFB22222;
+const hexaMainColor = 0xFFB22222;
+Color mainColor = new Color(hexaMainColor);
 
 Map<int, Color> color = {
   50: Color.fromRGBO(0, 0, 0, .1),
@@ -14,16 +15,16 @@ Map<int, Color> color = {
   800: Color.fromRGBO(0, 0, 0, .9),
   900: Color.fromRGBO(0, 0, 0, 1),
 };
-MaterialColor mainColorMaterial = MaterialColor(mainColor, color);
+MaterialColor mainColorMaterial = MaterialColor(hexaMainColor, color);
 
 final appTheme = ThemeData(
     fontFamily: 'Georgia',
     brightness: Brightness.dark,
-    primaryColor: new Color(mainColor),
+    primaryColor: mainColor,
     primarySwatch: mainColorMaterial,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        primary: new Color(mainColor),
+        primary: mainColor,
         onPrimary: Colors.white,
       ),
     ),
