@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 
-const mainColor = 0xFF582900;
+const mainColor = 0xFFB22222;
 
 Map<int, Color> color = {
-  50: Color.fromRGBO(88, 41, 0, .1),
-  100: Color.fromRGBO(88, 41, 0, .2),
-  200: Color.fromRGBO(88, 41, 0, .3),
-  300: Color.fromRGBO(88, 41, 0, .4),
-  400: Color.fromRGBO(88, 41, 0, .5),
-  500: Color.fromRGBO(88, 41, 0, .6),
-  600: Color.fromRGBO(88, 41, 0, .7),
-  700: Color.fromRGBO(88, 41, 0, .8),
-  800: Color.fromRGBO(88, 41, 0, .9),
-  900: Color.fromRGBO(88, 41, 0, 1),
+  50: Color.fromRGBO(0, 0, 0, .1),
+  100: Color.fromRGBO(0, 0, 0, .2),
+  200: Color.fromRGBO(0, 0, 0, .3),
+  300: Color.fromRGBO(0, 0, 0, .4),
+  400: Color.fromRGBO(0, 0, 0, .5),
+  500: Color.fromRGBO(0, 0, 0, .6),
+  600: Color.fromRGBO(0, 0, 0, .7),
+  700: Color.fromRGBO(0, 0, 0, .8),
+  800: Color.fromRGBO(0, 0, 0, .9),
+  900: Color.fromRGBO(0, 0, 0, 1),
 };
-MaterialColor mainColorMaterial = MaterialColor(0xFF582900, color);
+MaterialColor mainColorMaterial = MaterialColor(mainColor, color);
 
 final appTheme = ThemeData(
     fontFamily: 'Georgia',
-    primaryColor: new Color(0xFF582900),
+    brightness: Brightness.dark,
+    primaryColor: new Color(mainColor),
     primarySwatch: mainColorMaterial,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        primary: new Color(0xFF582900),
+        primary: new Color(mainColor),
         onPrimary: Colors.white,
       ),
     ),
