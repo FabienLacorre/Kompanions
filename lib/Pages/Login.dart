@@ -20,6 +20,10 @@ class _Login extends State<Login> {
   @override
   void initState() {
     super.initState();
+    initDummyValues();
+  }
+
+  initDummyValues() {
     emailController.text = "fab.lacorre@gmail.com";
     passwordController.text = "test";
   }

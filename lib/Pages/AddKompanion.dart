@@ -19,13 +19,17 @@ class _AddKompanion extends State<AddKompanion> {
 
   @override
   initState() {
+    super.initState();
+    initDummyValues();
+  }
+
+  initDummyValues() {
     nameController.text = "Name test";
     raceController.text = "Race test";
     dateController.text = "01.01.2020";
     numPuceController.text = "012345";
     weightController.text = "5";
     placeController.text = "SPA RENNES";
-    super.initState();
   }
 
   handlerAddNewKompanion() {

@@ -5,7 +5,6 @@ import 'package:kompanions/Utils/ErrorSnackBar.dart';
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
-import 'package:kompanions/FlutterStorage.dart';
 
 class Register extends StatefulWidget {
   Register({Key? key}) : super(key: key);
@@ -22,6 +21,10 @@ class _Register extends State<Register> {
   @override
   void initState() {
     super.initState();
+    initDummyValues();
+  }
+
+  initDummyValues() {
     emailController.text = "fab.lacorre@gmail.com";
     passwordController.text = "test";
     confirmPasswordController.text = "test";
