@@ -45,17 +45,8 @@ class _AddKompanion extends State<AddKompanion> {
     final DateTime? selected = await showDatePicker(
       context: context,
       initialDate: selectedDate,
-      firstDate: DateTime(2010),
+      firstDate: DateTime(2000),
       lastDate: DateTime(2025),
-      builder: (context, child) {
-        if (child != null) {
-          return Theme(
-            data: appTheme, // This will change to light theme.
-            child: child,
-          );
-        }
-        return new SizedBox.shrink();
-      },
     );
     if (selected != null && selected != selectedDate)
       setState(() {
