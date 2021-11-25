@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:kompanions/pages/Home.dart';
-import 'package:kompanions/Pages/Login.dart';
+import 'package:kompanions/Api/UserRequest.dart';
+import 'package:kompanions/Router/Router.dart';
+import 'package:kompanions/Utils/ErrorSnackBar.dart';
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
+import 'package:kompanions/FlutterStorage.dart';
 
 class Register extends StatefulWidget {
   Register({Key? key}) : super(key: key);
@@ -13,14 +15,32 @@ class Register extends StatefulWidget {
 }
 
 class _Register extends State<Register> {
-  handlerRegisterValidation() {
-    Route route = MaterialPageRoute(builder: (context) => Home());
-    Navigator.pushReplacement(context, route);
+  TextEditingController emailController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
+  TextEditingController confirmPasswordController = new TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    emailController.text = "fab.lacorre@gmail.com";
+    passwordController.text = "test";
+    confirmPasswordController.text = "test";
+  }
+
+  handlerRegisterValidation() async {
+    try {
+      UserRequest userRequest = new UserRequest();
+      await userRequest.register(emailController.text, passwordController.text,
+          confirmPasswordController.text);
+      await userRequest.connect(emailController.text, passwordController.text);
+      homeRedirection(context);
+    } catch (error) {
+      errorSnackBar(context, error.toString());
+    }
   }
 
   handlerLoginRediction() {
-    Route route = MaterialPageRoute(builder: (context) => Login());
-    Navigator.pushReplacement(context, route);
+    loginRedirection(context);
   }
 
   @override
@@ -40,30 +60,22 @@ class _Register extends State<Register> {
               SizedBox(
                 height: 15.0,
               ),
-              CustomButton(
-                content: "Continuer avec Google",
-                handler: this.handlerRegisterValidation,
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              CustomButton(
-                content: "Continuer avec Facebook",
-                handler: this.handlerRegisterValidation,
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              CustomTextField(placeHolder: "Email", controller: null),
-              SizedBox(
-                height: 15.0,
-              ),
-              CustomTextField(placeHolder: "Mot de passe", controller: null),
               SizedBox(
                 height: 15.0,
               ),
               CustomTextField(
-                  placeHolder: "Confimation du mot de passe", controller: null),
+                  placeHolder: "Email", controller: emailController),
+              SizedBox(
+                height: 15.0,
+              ),
+              CustomTextField(
+                  placeHolder: "Mot de passe", controller: passwordController),
+              SizedBox(
+                height: 15.0,
+              ),
+              CustomTextField(
+                  placeHolder: "Confimation du mot de passe",
+                  controller: confirmPasswordController),
               SizedBox(
                 height: 15.0,
               ),

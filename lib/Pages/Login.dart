@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kompanions/Router/Router.dart';
-
 import 'package:kompanions/Utils/ErrorSnackBar.dart';
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
 import 'package:kompanions/Api/UserRequest.dart';
-import 'package:kompanions/FlutterStorage.dart';
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
@@ -29,9 +27,7 @@ class _Login extends State<Login> {
   handlerConnexionValidation() async {
     try {
       UserRequest userRequest = new UserRequest();
-      var result = await userRequest.connect(
-          emailController.text, passwordController.text);
-      FlutterStorage.writeJWTToken(result["token"]);
+      await userRequest.connect(emailController.text, passwordController.text);
       homeRedirection(context);
     } catch (error) {
       errorSnackBar(context, error.toString());
