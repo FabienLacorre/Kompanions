@@ -13,7 +13,6 @@ class KompanionsApp extends StatelessWidget {
       title: 'Kompanions',
       theme: appTheme,
       home: Login(),
-      // home: Home(),
     );
   }
 }

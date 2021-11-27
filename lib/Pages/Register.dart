@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kompanions/Api/UserRequest.dart';
 import 'package:kompanions/Router/Router.dart';
+import 'package:kompanions/Theme/CustomTheme.dart';
 import 'package:kompanions/Widgets/ErrorSnackBar.dart';
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
@@ -49,6 +51,7 @@ class _Register extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: darkGrayColorMaterial,
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(16.0),
@@ -56,43 +59,34 @@ class _Register extends State<Register> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CustomText(
-                content: 'INSCRIPTION',
-                size: 30,
+                content: "Kompanions",
+                size: 40,
+                color: greenColorMaterial,
                 fontWeight: FontWeight.bold,
+                fontFamily: GoogleFonts.getFont('Allerta Stencil',
+                    fontWeight: FontWeight.bold),
               ),
-              SizedBox(
-                height: 15.0,
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              CustomTextField(
-                  placeHolder: "Email", controller: emailController),
-              SizedBox(
-                height: 15.0,
-              ),
-              CustomTextField(
+              SizedBox(height: 48),
+              RoundTextField(placeHolder: "Email", controller: emailController),
+              SizedBox(height: 16),
+              RoundTextField(
                   placeHolder: "Mot de passe", controller: passwordController),
-              SizedBox(
-                height: 15.0,
-              ),
-              CustomTextField(
+              SizedBox(height: 16),
+              RoundTextField(
                   placeHolder: "Confimation du mot de passe",
                   controller: confirmPasswordController),
-              SizedBox(
-                height: 15.0,
-              ),
+              SizedBox(height: 16),
               CustomButton(
+                radius: 100,
                 content: "S'inscrire",
                 handler: this.handlerRegisterValidation,
               ),
-              SizedBox(
-                height: 15.0,
-              ),
+              SizedBox(height: 32),
               new GestureDetector(
                 onTap: this.handlerLoginRediction,
                 child: CustomText(
-                  content: "Vous avez deja un compte, connectez vous ici!",
+                  color: ghostWhiteColorMaterial,
+                  content: "Vous avez deja un compte, connectez vous ici !",
                   size: 12,
                   underline: TextDecoration.underline,
                 ),

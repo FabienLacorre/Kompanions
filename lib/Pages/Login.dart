@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kompanions/Router/Router.dart';
+import 'package:kompanions/Theme/CustomTheme.dart';
 import 'package:kompanions/Widgets/ErrorSnackBar.dart';
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
@@ -45,38 +47,39 @@ class _Login extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: darkGrayColorMaterial,
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: AssetImage('../../assets/logo.png'),
-                      fit: BoxFit.cover),
-                ),
+              CustomText(
+                content: "Kompanions",
+                size: 40,
+                color: greenColorMaterial,
+                fontWeight: FontWeight.bold,
+                fontFamily: GoogleFonts.getFont('Allerta Stencil',
+                    fontWeight: FontWeight.bold),
               ),
+              SizedBox(height: 48),
+              RoundTextField(placeHolder: "Email", controller: emailController),
               SizedBox(height: 16),
-              CustomTextField(
-                  placeHolder: "Email", controller: emailController),
-              SizedBox(height: 16),
-              CustomTextField(
+              RoundTextField(
                   placeHolder: "Mot de passe", controller: passwordController),
               SizedBox(height: 16),
               CustomButton(
+                radius: 100,
                 content: "Se connecter",
                 handler: this.handlerConnexionValidation,
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 32),
               new GestureDetector(
                 onTap: this.handlerRegisterRediction,
                 child: CustomText(
-                  content: "Cliquez ici pour vous inscrire!",
+                  color: ghostWhiteColorMaterial,
+                  content:
+                      "Vous n'avez pas de compte ? Cliquez ici pour vous inscrire !",
                   size: 12,
                   underline: TextDecoration.underline,
                 ),
