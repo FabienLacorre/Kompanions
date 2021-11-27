@@ -51,10 +51,15 @@ class _Login extends State<Login> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              CustomText(
-                content: 'CONNEXION',
-                size: 30,
-                fontWeight: FontWeight.bold,
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage('../../assets/logo.png'),
+                      fit: BoxFit.cover),
+                ),
               ),
               SizedBox(height: 16),
               CustomTextField(

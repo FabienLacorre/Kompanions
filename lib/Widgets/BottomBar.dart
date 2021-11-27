@@ -10,56 +10,36 @@ class _BottomBar extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
-      backgroundColor: mainColorMaterial,
-      buttonBackgroundColor: ghostWhiteColorMaterial,
-      color: ghostWhiteColorMaterial,
+      backgroundColor: greenColorMaterial,
+      buttonBackgroundColor: darkGrayColorMaterial,
+      color: darkGrayColorMaterial,
       height: 50,
       items: <Widget>[
         Icon(
           Icons.add,
           size: 30,
-          color: mainColorMaterial,
+          color: ghostWhiteColorMaterial,
         ),
         Icon(
           Icons.list,
           size: 30,
-          color: mainColorMaterial,
+          color: ghostWhiteColorMaterial,
         ),
         Icon(
           Icons.compare_arrows,
           size: 30,
-          color: mainColorMaterial,
+          color: ghostWhiteColorMaterial,
         ),
         Icon(
           Icons.compare_arrows,
           size: 30,
-          color: mainColorMaterial,
+          color: ghostWhiteColorMaterial,
         ),
       ],
       onTap: (index) {
         //Handle button tap
       },
     );
-
-    // return BottomNavigationBar(
-    //   items: const <BottomNavigationBarItem>[
-    //     BottomNavigationBarItem(
-    //       icon: Icon(Icons.schedule),
-    //       label: 'Agenda',
-    //     ),
-    //     BottomNavigationBarItem(
-    //       icon: Icon(Icons.pets),
-    //       label: 'Kompanions',
-    //     ),
-    //     BottomNavigationBarItem(
-    //       icon: Icon(Icons.settings),
-    //       label: 'Paramètres',
-    //     ),
-    //   ],
-    //   currentIndex: 1,
-    //   // selectedItemColor: Color(mainColor),
-    //   onTap: (int index) {},
-    // );
   }
 }
 

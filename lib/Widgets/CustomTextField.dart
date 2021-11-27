@@ -7,6 +7,7 @@ class _CustomTextField extends State<CustomTextField> {
       controller: widget.controller,
       obscureText: false,
       decoration: InputDecoration(
+        border: OutlineInputBorder(),
         labelText: this.widget.placeHolder,
       ),
     );

@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 
-// PALETTE BLEU VERT FONCE
-// #0B162C
-// #1C2942
-// #3B556D
-// #5FC2BA
-// #FFFFFF
-
-// ORANGE
-const mainHexaColor = 0xFF508991;
-Color mainClassicColor = new Color(mainHexaColor);
-Map<int, Color> mainColor = generateEmptyColor();
-MaterialColor mainColorMaterial = MaterialColor(mainHexaColor, mainColor);
+// GREEN
+const greenHexaColor = 0xFF4ECCA3;
+Color greenClassicColor = new Color(greenHexaColor);
+Map<int, Color> greenColor = generateEmptyColor();
+MaterialColor greenColorMaterial = MaterialColor(greenHexaColor, greenColor);
 
 // GHOSTWHITE
 const ghostWhiteHexaColor = 0xFFFBFBFF;
@@ -19,6 +12,20 @@ Color ghostWhiteClassicColor = new Color(ghostWhiteHexaColor);
 Map<int, Color> ghostWhiteColor = generateEmptyColor();
 MaterialColor ghostWhiteColorMaterial =
     MaterialColor(ghostWhiteHexaColor, ghostWhiteColor);
+
+// LIGHTGRAY
+const lightGrayHexaColor = 0xFFEEEEEE;
+Color lightGrayClassicColor = new Color(lightGrayHexaColor);
+Map<int, Color> lightGrayColor = generateEmptyColor();
+MaterialColor lightGrayColorMaterial =
+    MaterialColor(lightGrayHexaColor, lightGrayColor);
+
+// DARK GRAY
+const darkGrayHexaColor = 0xFF393E46;
+Color darkGrayClassicColor = new Color(darkGrayHexaColor);
+Map<int, Color> darkGrayColor = generateEmptyColor();
+MaterialColor darkGrayColorMaterial =
+    MaterialColor(darkGrayHexaColor, darkGrayColor);
 
 // BLACK
 const blackHexaColor = 0xFF000000;
@@ -29,11 +36,11 @@ MaterialColor blackColorMaterial = MaterialColor(blackHexaColor, blackColor);
 final appTheme = ThemeData(
     fontFamily: 'Georgia',
     brightness: Brightness.light,
-    primaryColor: mainColorMaterial,
-    primarySwatch: mainColorMaterial,
+    primaryColor: greenColorMaterial,
+    primarySwatch: greenColorMaterial,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        primary: mainColorMaterial,
+        primary: greenColorMaterial,
         onPrimary: Colors.white,
       ),
     ),
@@ -41,11 +48,9 @@ final appTheme = ThemeData(
       textTheme: ButtonTextTheme.primary,
       buttonColor: ghostWhiteColorMaterial,
     ),
-    textTheme: const TextTheme(
-      headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-      headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-      bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
-    ));
+    appBarTheme: AppBarTheme(
+        backgroundColor: darkGrayColorMaterial,
+        foregroundColor: ghostWhiteColorMaterial));
 
 Map<int, Color> generateEmptyColor() {
   return {

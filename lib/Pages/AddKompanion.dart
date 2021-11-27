@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kompanions/Theme/CustomTheme.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
-import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
 import 'package:kompanions/Widgets/TopBar.dart';
 
@@ -82,6 +80,7 @@ class _AddKompanion extends State<AddKompanion> {
                     content: "Changer la date",
                     handler: () => _selectDate(context),
                   ),
+                  SizedBox(height: 16),
                   CustomTextField(
                       placeHolder: "Numéro puce / tatouage",
                       controller: numPuceController),

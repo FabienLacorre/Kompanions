@@ -10,7 +10,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      // backgroundColor: Color(mainColor),
+      backwardsCompatibility: false,
       actions: [
         Icon(Icons.more_vert),
       ],

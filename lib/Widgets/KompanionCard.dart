@@ -6,27 +6,39 @@ class _KompanionCard extends State<KompanionCard> {
   Widget build(BuildContext context) {
     return (Container(
       child: Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ListTile(
-              title: Container(
-                  margin: EdgeInsets.only(bottom: 8),
-                  child: CustomText(content: widget.title)),
-              subtitle: CustomText(content: widget.subtitle, size: 14),
-            ),
-            Image.asset(widget.photoSrc),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: CustomText(content: 'Détail', size: 14),
-                  onPressed: () {/* ... */},
-                ),
-                const SizedBox(width: 8),
-              ],
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Row(
+                children: [
+                  Flexible(
+                    flex: 2,
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: AssetImage('../../assets/capuche.jpg'),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    flex: 8,
+                    child: ListTile(
+                      title: Container(
+                          margin: EdgeInsets.only(bottom: 8),
+                          child: CustomText(content: widget.title)),
+                      subtitle: CustomText(content: widget.subtitle, size: 14),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     ));
