@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:kompanions/Theme/CustomTheme.dart';
-import 'package:kompanions/Widgets/CustomButton.dart';
-import 'package:table_calendar/table_calendar.dart';
 import 'package:kompanions/Classes/Event.dart';
+import 'package:table_calendar/table_calendar.dart';
 
-class SchedulePage extends StatefulWidget {
-  SchedulePage({Key? key}) : super(key: key);
+class TableEventsExample extends StatefulWidget {
   @override
-  _SchedulePage createState() => _SchedulePage();
+  _TableEventsExampleState createState() => _TableEventsExampleState();
 }
 
-class _SchedulePage extends State<SchedulePage> {
+class _TableEventsExampleState extends State<TableEventsExample> {
   late final ValueNotifier<List<Event>> _selectedEvents;
   CalendarFormat _calendarFormat = CalendarFormat.month;
   RangeSelectionMode _rangeSelectionMode = RangeSelectionMode
@@ -84,18 +81,12 @@ class _SchedulePage extends State<SchedulePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-      padding: EdgeInsets.all(10),
-      child: Column(
+      appBar: AppBar(
+        title: Text('TableCalendar - Events'),
+      ),
+      body: Column(
         children: [
-          CustomButton(
-            content: "Ajouter un evenement",
-            handler: () {
-              print("WIP");
-            },
-          ),
           TableCalendar<Event>(
-            locale: 'fr_FR',
             firstDay: kFirstDay,
             lastDay: kLastDay,
             focusedDay: _focusedDay,
@@ -123,35 +114,8 @@ class _SchedulePage extends State<SchedulePage> {
               _focusedDay = focusedDay;
             },
           ),
-          const SizedBox(height: 8.0),
-          Expanded(
-            child: ValueListenableBuilder<List<Event>>(
-              valueListenable: _selectedEvents,
-              builder: (context, value, _) {
-                return ListView.builder(
-                  itemCount: value.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 12.0,
-                        vertical: 4.0,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      child: ListTile(
-                        onTap: () => print('${value[index]}'),
-                        title: Text('${value[index]}'),
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
-          ),
         ],
       ),
-    ));
+    );
   }
 }

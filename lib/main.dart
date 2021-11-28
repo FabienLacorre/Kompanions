@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:kompanions/Pages/HomePage.dart';
 import 'Pages/LoginPage.dart';
 import 'Theme/CustomTheme.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
-  runApp(KompanionsApp());
+  initializeDateFormatting().then((_) => runApp(KompanionsApp()));
 }
 
 class KompanionsApp extends StatelessWidget {
@@ -12,7 +14,7 @@ class KompanionsApp extends StatelessWidget {
     return MaterialApp(
       title: 'Kompanions',
       theme: appTheme,
-      home: LoginPage(),
+      home: HomePage(),
     );
   }
 }

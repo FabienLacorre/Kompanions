@@ -49,33 +49,31 @@ class _KompanionsPage extends State<KompanionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  CustomButton(
-                    content: "Ajouter un kompanion",
-                    handler: () {
-                      this.handlerAddNewKompanion(context);
-                    },
-                  ),
-                  SizedBox(height: 8),
-                  FutureBuilder(
-                      future: futureAllPet,
-                      builder: (BuildContext context, AsyncSnapshot snapshot) {
-                        if (snapshot.hasData) {
-                          return buildPetList(context, snapshot);
-                        } else {
-                          return buildNoPetsFound();
-                        }
-                      }),
-                ],
-              ),
-            )),
-      ),
+      body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              children: [
+                CustomButton(
+                  content: "Ajouter un kompanion",
+                  handler: () {
+                    this.handlerAddNewKompanion(context);
+                  },
+                ),
+                SizedBox(height: 8),
+                FutureBuilder(
+                    future: futureAllPet,
+                    builder: (BuildContext context, AsyncSnapshot snapshot) {
+                      if (snapshot.hasData) {
+                        return buildPetList(context, snapshot);
+                      } else {
+                        return buildNoPetsFound();
+                      }
+                    }),
+              ],
+            ),
+          )),
     );
   }
 }
