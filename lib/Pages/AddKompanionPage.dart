@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kompanions/Router/Router.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
 import 'package:kompanions/Widgets/TopBar.dart';
@@ -16,6 +17,7 @@ class _AddKompanionPage extends State<AddKompanionPage> {
   TextEditingController numPuceController = TextEditingController();
   TextEditingController weightController = TextEditingController();
   TextEditingController placeController = TextEditingController();
+  DateTime selectedDate = DateTime.now();
 
   @override
   initState() {
@@ -31,13 +33,6 @@ class _AddKompanionPage extends State<AddKompanionPage> {
     weightController.text = "5";
     placeController.text = "SPA RENNES";
   }
-
-  handlerAddNewKompanion() {
-    Route route = MaterialPageRoute(builder: (context) => AddKompanionPage());
-    Navigator.pushReplacement(context, route);
-  }
-
-  DateTime selectedDate = DateTime.now();
 
   _selectDate(BuildContext context) async {
     final DateTime? selected = await showDatePicker(
@@ -91,6 +86,13 @@ class _AddKompanionPage extends State<AddKompanionPage> {
                   CustomTextField(
                       placeHolder: "Lieu de l'adoption",
                       controller: placeController),
+                  SizedBox(height: 16),
+                  CustomButton(
+                    content: "Ajouter",
+                    handler: () {
+                      popCurrentPage(context);
+                    },
+                  ),
                 ],
               ),
             )),

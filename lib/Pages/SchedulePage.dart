@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kompanions/Router/Router.dart';
 import 'package:kompanions/Theme/CustomTheme.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -85,13 +86,13 @@ class _SchedulePage extends State<SchedulePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(16),
       child: Column(
         children: [
           CustomButton(
             content: "Ajouter un evenement",
             handler: () {
-              print("WIP");
+              addEventRedirection(context);
             },
           ),
           TableCalendar<Event>(

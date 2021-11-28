@@ -3,23 +3,38 @@ import 'package:kompanions/Pages/AddKompanionPage.dart';
 import 'package:kompanions/Pages/LoginPage.dart';
 import 'package:kompanions/Pages/RegisterPage.dart';
 import 'package:kompanions/Pages/HomePage.dart';
+import 'package:kompanions/Pages/addEvent.dart';
+
+popCurrentPage(context) {
+  Navigator.pop(context);
+}
+
+replacePage(context, page) {
+  Route route = MaterialPageRoute(builder: (context) => page);
+  Navigator.pushReplacement(context, route);
+}
+
+pushPage(context, page) {
+  Route route = MaterialPageRoute(builder: (context) => page);
+  Navigator.push(context, route);
+}
 
 loginRedirection(context) {
-  Route route = MaterialPageRoute(builder: (context) => LoginPage());
-  Navigator.pushReplacement(context, route);
+  replacePage(context, LoginPage());
 }
 
 registerRedirection(context) {
-  Route route = MaterialPageRoute(builder: (context) => RegisterPage());
-  Navigator.pushReplacement(context, route);
+  replacePage(context, RegisterPage());
 }
 
 homeRedirection(context) {
-  Route route = MaterialPageRoute(builder: (context) => HomePage());
-  Navigator.pushReplacement(context, route);
+  replacePage(context, HomePage());
 }
 
 addKompanionsRedirection(context) {
-  Route route = MaterialPageRoute(builder: (context) => AddKompanionPage());
-  Navigator.push(context, route);
+  pushPage(context, AddKompanionPage());
+}
+
+addEventRedirection(context) {
+  pushPage(context, AddEventPage());
 }
