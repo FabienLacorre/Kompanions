@@ -3,13 +3,13 @@ import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
 import 'package:kompanions/Widgets/TopBar.dart';
 
-class AddKompanion extends StatefulWidget {
-  AddKompanion({Key? key}) : super(key: key);
+class AddKompanionPage extends StatefulWidget {
+  AddKompanionPage({Key? key}) : super(key: key);
   @override
-  _AddKompanion createState() => _AddKompanion();
+  _AddKompanionPage createState() => _AddKompanionPage();
 }
 
-class _AddKompanion extends State<AddKompanion> {
+class _AddKompanionPage extends State<AddKompanionPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController raceController = TextEditingController();
   TextEditingController dateController = TextEditingController();
@@ -33,7 +33,7 @@ class _AddKompanion extends State<AddKompanion> {
   }
 
   handlerAddNewKompanion() {
-    Route route = MaterialPageRoute(builder: (context) => AddKompanion());
+    Route route = MaterialPageRoute(builder: (context) => AddKompanionPage());
     Navigator.pushReplacement(context, route);
   }
 

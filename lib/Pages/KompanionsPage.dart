@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:kompanions/Api/PetRequest.dart';
 import 'package:kompanions/Classes/Pet.dart';
+import 'package:kompanions/Router/Router.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/KompanionCard.dart';
-import "package:kompanions/Widgets/BottomBar.dart";
 import 'package:kompanions/Widgets/CustomText.dart';
-import 'package:kompanions/Widgets/TopBar.dart';
-import "package:kompanions/Pages/AddKompanion.dart";
 
-class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+class KompanionsPage extends StatefulWidget {
+  KompanionsPage({Key? key}) : super(key: key);
   @override
-  _Home createState() => _Home();
+  _KompanionsPage createState() => _KompanionsPage();
 }
 
-class _Home extends State<Home> {
+class _KompanionsPage extends State<KompanionsPage> {
   late Future<List<Pet>> futureAllPet;
 
   @override
@@ -24,9 +22,8 @@ class _Home extends State<Home> {
     futureAllPet = petRequest.fetchPets();
   }
 
-  handlerAddNewKompanion() async {
-    Route route = MaterialPageRoute(builder: (context) => AddKompanion());
-    Navigator.push(context, route);
+  handlerAddNewKompanion(context) {
+    addKompanionsRedirection(context);
   }
 
   buildPetList(BuildContext context, AsyncSnapshot snapshot) {
@@ -52,10 +49,6 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TopBar(
-        title: "Home",
-      ),
-      bottomNavigationBar: BottomBar(),
       body: Center(
         child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -65,7 +58,9 @@ class _Home extends State<Home> {
                 children: [
                   CustomButton(
                     content: "Ajouter un kompanion",
-                    handler: this.handlerAddNewKompanion,
+                    handler: () {
+                      this.handlerAddNewKompanion(context);
+                    },
                   ),
                   SizedBox(height: 8),
                   FutureBuilder(

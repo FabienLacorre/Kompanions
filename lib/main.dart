@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import "Pages/Login.dart";
+import 'Pages/LoginPage.dart';
 import 'Theme/CustomTheme.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class KompanionsApp extends StatelessWidget {
     return MaterialApp(
       title: 'Kompanions',
       theme: appTheme,
-      home: Login(),
+      home: LoginPage(),
     );
   }
 }

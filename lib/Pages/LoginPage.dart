@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kompanions/Api/UserRequest.dart';
 import 'package:kompanions/Router/Router.dart';
 import 'package:kompanions/Theme/CustomTheme.dart';
 import 'package:kompanions/Widgets/ErrorSnackBar.dart';
 import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
+import 'package:kompanions/Api/UserRequest.dart';
 
-class Register extends StatefulWidget {
-  Register({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  LoginPage({Key? key}) : super(key: key);
 
   @override
-  _Register createState() => _Register();
+  _LoginPage createState() => _LoginPage();
 }
 
-class _Register extends State<Register> {
+class _LoginPage extends State<LoginPage> {
   TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
-  TextEditingController confirmPasswordController = new TextEditingController();
 
   @override
   void initState() {
@@ -29,14 +28,11 @@ class _Register extends State<Register> {
   initDummyValues() {
     emailController.text = "fab.lacorre@gmail.com";
     passwordController.text = "test";
-    confirmPasswordController.text = "test";
   }
 
-  handlerRegisterValidation() async {
+  handlerConnexionValidation() async {
     try {
       UserRequest userRequest = new UserRequest();
-      await userRequest.register(emailController.text, passwordController.text,
-          confirmPasswordController.text);
       await userRequest.connect(emailController.text, passwordController.text);
       homeRedirection(context);
     } catch (error) {
@@ -44,8 +40,8 @@ class _Register extends State<Register> {
     }
   }
 
-  handlerLoginRediction() {
-    loginRedirection(context);
+  handlerRegisterRediction() {
+    registerRedirection(context);
   }
 
   @override
@@ -72,21 +68,18 @@ class _Register extends State<Register> {
               RoundTextField(
                   placeHolder: "Mot de passe", controller: passwordController),
               SizedBox(height: 16),
-              RoundTextField(
-                  placeHolder: "Confimation du mot de passe",
-                  controller: confirmPasswordController),
-              SizedBox(height: 16),
               CustomButton(
                 radius: 100,
-                content: "S'inscrire",
-                handler: this.handlerRegisterValidation,
+                content: "Se connecter",
+                handler: this.handlerConnexionValidation,
               ),
               SizedBox(height: 32),
               new GestureDetector(
-                onTap: this.handlerLoginRediction,
+                onTap: this.handlerRegisterRediction,
                 child: CustomText(
                   color: ghostWhiteColorMaterial,
-                  content: "Vous avez deja un compte, connectez vous ici !",
+                  content:
+                      "Vous n'avez pas de compte ? Cliquez ici pour vous inscrire !",
                   size: 12,
                   underline: TextDecoration.underline,
                 ),
