@@ -25,9 +25,9 @@ class _UserPage extends State<UserPage> {
               child: Column(
                 children: [
                   CustomButton(
-                    content: "Redirect kompanions page",
+                    content: "Deconnexion",
                     handler: () {
-                      homeRedirection(context);
+                      loginRedirection(context);
                     },
                   ),
                 ],
