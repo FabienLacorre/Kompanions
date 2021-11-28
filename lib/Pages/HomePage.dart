@@ -14,11 +14,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
-  int page = 0;
+  int page = 1;
   String title = "Kompanions";
   final pages = [
-    KompanionsPage(),
     SchedulePage(),
+    KompanionsPage(),
     UserPage(),
   ];
 
@@ -42,12 +42,12 @@ class _HomePage extends State<HomePage> {
         },
         items: <Widget>[
           Icon(
-            Icons.pets_outlined,
+            Icons.calendar_today,
             size: 30,
             color: ghostWhiteColorMaterial,
           ),
           Icon(
-            Icons.calendar_today,
+            Icons.pets_outlined,
             size: 30,
             color: ghostWhiteColorMaterial,
           ),
@@ -60,10 +60,10 @@ class _HomePage extends State<HomePage> {
         onTap: (index) {
           String tmpTitle = "";
           if (index == 0) {
-            tmpTitle = "Kompanions";
+            tmpTitle = "Agenda";
           }
           if (index == 1) {
-            tmpTitle = "Agenda";
+            tmpTitle = "Kompanions";
           }
           if (index == 2) {
             tmpTitle = "Profil";
