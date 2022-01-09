@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:kompanions/Pages/AddKompanionPage.dart';
 import 'package:kompanions/Pages/SchedulePage.dart';
 import 'package:kompanions/Pages/UserPage.dart';
 import 'package:kompanions/Theme/CustomTheme.dart';

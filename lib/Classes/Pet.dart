@@ -2,6 +2,10 @@ import 'Race.dart';
 
 class Pet {
   String name;
+  String adoptionLocation = "";
+  String identificationNumber = "";
+  DateTime birthDate = new DateTime.now();
+
   String img;
   Race? race;
 

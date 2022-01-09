@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 import 'package:http/http.dart' as http;
 import 'package:kompanions/Classes/Pet.dart';
 import 'package:kompanions/FlutterStorage.dart';

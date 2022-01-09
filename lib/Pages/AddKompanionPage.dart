@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kompanions/Api/PetRequest.dart';
+import 'package:kompanions/Api/RaceRequest.dart';
 import 'package:kompanions/Classes/Pet.dart';
+import 'package:kompanions/Classes/Race.dart';
 import 'package:kompanions/Router/Router.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
+import 'package:kompanions/Widgets/CustomText.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
 import 'package:kompanions/Widgets/ErrorSnackBar.dart';
 import 'package:kompanions/Widgets/TopBar.dart';
@@ -22,19 +25,36 @@ class _AddKompanionPage extends State<AddKompanionPage> {
   TextEditingController placeController = TextEditingController();
   DateTime selectedDate = DateTime.now();
 
+  late Future<List<Race>> futureAllRaces;
+  List<String> racesString = [];
+  String selectedRace = '';
+
   @override
   initState() {
     super.initState();
     initDummyValues();
+    RaceRequest raceRequest = RaceRequest();
+    futureAllRaces = raceRequest.fetch();
+  }
+
+  addKompanion() async {
+    try {
+      PetRequest petRequest = new PetRequest();
+      Pet inCreationPet = new Pet(name: nameController.text);
+      await petRequest.add(inCreationPet);
+    } catch (error) {
+      errorSnackBar(context, error.toString());
+    }
+    homeRedirection(context);
   }
 
   initDummyValues() {
     nameController.text = "Name test";
-    raceController.text = "Race test";
-    dateController.text = "01.01.2020";
-    numPuceController.text = "012345";
-    weightController.text = "5";
-    placeController.text = "SPA RENNES";
+    raceController.text = "";
+    dateController.text = "";
+    numPuceController.text = "";
+    weightController.text = "";
+    placeController.text = "";
   }
 
   selectDate(BuildContext context) async {
@@ -50,15 +70,39 @@ class _AddKompanionPage extends State<AddKompanionPage> {
       });
   }
 
-  addKompanion() async {
-    try {
-      PetRequest petRequest = new PetRequest();
-      Pet inCreationPet = new Pet(name: nameController.text);
-      await petRequest.add(inCreationPet);
-    } catch (error) {
-      errorSnackBar(context, error.toString());
+  buildRaceDropdown(BuildContext context, AsyncSnapshot snapshot) {
+    print(snapshot.data);
+    selectedRace = snapshot.data[0].name;
+    for (final race in snapshot.data) {
+      print(race.name);
+      racesString.add(race.name);
     }
-    homeRedirection(context);
+    return DropdownButton<String>(
+        value: selectedRace,
+        isExpanded: true,
+        icon: const Icon(Icons.arrow_downward),
+        onChanged: (String? newValue) {
+          print("SET STATE RACE");
+          setState(() {
+            selectedRace = newValue!;
+          });
+        },
+        items: racesString.map<DropdownMenuItem<String>>((String value) {
+          print("VALUE");
+          print(value);
+          return DropdownMenuItem<String>(
+            value: value,
+            child: CustomText(content: value),
+          );
+        }).toList());
+  }
+
+  buildNoPetsFound() {
+    return CustomText(
+      content: 'Aucun kompanions',
+      size: 16,
+      fontWeight: FontWeight.bold,
+    );
   }
 
   @override
@@ -75,11 +119,18 @@ class _AddKompanionPage extends State<AddKompanionPage> {
               child: Column(
                 children: [
                   SizedBox(height: 16),
-                  CustomTextField(
-                      placeHolder: "Nom", controller: nameController),
+                  FutureBuilder(
+                      future: futureAllRaces,
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
+                        if (snapshot.hasData) {
+                          return buildRaceDropdown(context, snapshot);
+                        } else {
+                          return buildNoPetsFound();
+                        }
+                      }),
                   SizedBox(height: 16),
                   CustomTextField(
-                      placeHolder: "Race", controller: raceController),
+                      placeHolder: "Nom", controller: nameController),
                   SizedBox(height: 16),
                   CustomTextField(
                       placeHolder: "Date de naissance",
