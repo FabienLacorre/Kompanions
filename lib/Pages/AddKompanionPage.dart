@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kompanions/Api/PetRequest.dart';
+import 'package:kompanions/Classes/Pet.dart';
 import 'package:kompanions/Router/Router.dart';
 import 'package:kompanions/Widgets/CustomButton.dart';
 import 'package:kompanions/Widgets/CustomTextField.dart';
+import 'package:kompanions/Widgets/ErrorSnackBar.dart';
 import 'package:kompanions/Widgets/TopBar.dart';
 
 class AddKompanionPage extends StatefulWidget {
@@ -34,7 +37,7 @@ class _AddKompanionPage extends State<AddKompanionPage> {
     placeController.text = "SPA RENNES";
   }
 
-  _selectDate(BuildContext context) async {
+  selectDate(BuildContext context) async {
     final DateTime? selected = await showDatePicker(
       context: context,
       initialDate: selectedDate,
@@ -45,6 +48,17 @@ class _AddKompanionPage extends State<AddKompanionPage> {
       setState(() {
         selectedDate = selected;
       });
+  }
+
+  addKompanion() async {
+    try {
+      PetRequest petRequest = new PetRequest();
+      Pet inCreationPet = new Pet(name: nameController.text);
+      await petRequest.add(inCreationPet);
+    } catch (error) {
+      errorSnackBar(context, error.toString());
+    }
+    homeRedirection(context);
   }
 
   @override
@@ -73,7 +87,7 @@ class _AddKompanionPage extends State<AddKompanionPage> {
                   SizedBox(height: 16),
                   CustomButton(
                     content: "Changer la date",
-                    handler: () => _selectDate(context),
+                    handler: () => selectDate(context),
                   ),
                   SizedBox(height: 16),
                   CustomTextField(
@@ -90,7 +104,7 @@ class _AddKompanionPage extends State<AddKompanionPage> {
                   CustomButton(
                     content: "Ajouter",
                     handler: () {
-                      popCurrentPage(context);
+                      addKompanion();
                     },
                   ),
                 ],

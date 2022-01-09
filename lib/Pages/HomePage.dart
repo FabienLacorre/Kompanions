@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
-  int page = 0;
+  int page = 1;
   String title = "Kompanions";
   final pages = [
     SchedulePage(),

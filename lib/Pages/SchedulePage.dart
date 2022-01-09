@@ -36,14 +36,14 @@ class _SchedulePage extends State<SchedulePage> {
   }
 
   List<Event> _getEventsForDay(DateTime day) {
-    // Implementation example
+    if (kEvents.length == 0) {
+      return [];
+    }
     return kEvents[day] ?? [];
   }
 
   List<Event> _getEventsForRange(DateTime start, DateTime end) {
-    // Implementation example
     final days = daysInRange(start, end);
-
     return [
       for (final d in days) ..._getEventsForDay(d),
     ];
