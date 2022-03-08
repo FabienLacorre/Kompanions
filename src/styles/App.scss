@@ -1,0 +1,142 @@
+// COLORS
+
+$main-color: #393e46;
+$main-color-hover: #565d69;
+$secondary-color: #4ecca3;
+$secondary-color-hover: #5fe7bb;
+$white: #fff;
+$ghost-white: #fbfbff;
+$light-grey: #eeeeee;
+
+// SIZE
+
+$minimal-size: 4px;
+$small-size: 8px;
+$medium-size: 16px;
+$large-size: 32px;
+
+// TIME
+
+$small-time: 0.2s;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $ghost-white;
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  padding: $medium-size;
+}
+
+// CONTAINER AND SPACE
+.small-padding-container {
+  width: 100%;
+  padding: $small-size;
+}
+
+.small-separator {
+  height: $small-size;
+}
+
+.medium-separator {
+  height: $medium-size;
+}
+
+.small-right-margin {
+  margin-right: $small-size;
+}
+
+.column-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-display {
+  display: flex;
+  flex-direction: row;
+}
+
+// TEXT
+
+.bold {
+  font-weight: bold;
+}
+
+// CARD
+
+.card-image {
+  border: 1px solid $light-grey;
+  overflow: hidden;
+  border-radius: $minimal-size;
+  background-color: $white;
+  max-width: 286px;
+  .image {
+    height: 200px;
+    width: 100%;
+    background-color: grey;
+  }
+}
+
+// BUTTONS
+
+.rounded {
+  border-radius: $medium-size !important;
+}
+
+.main-background {
+  color: $ghost-white;
+  background-color: $main-color;
+  transition: $small-time ease;
+  &:hover {
+    background-color: $main-color-hover;
+  }
+  &:active {
+    background-color: $main-color;
+  }
+}
+
+.secondary-background {
+  color: $ghost-white;
+  background-color: $secondary-color;
+  transition: $small-time ease;
+  &:hover {
+    background-color: $secondary-color-hover;
+  }
+  &:active {
+    background-color: $secondary-color;
+  }
+}
+
+.button {
+  border-radius: $minimal-size;
+  padding-top: $small-size;
+  padding-bottom: $small-size;
+  padding-left: $large-size;
+  padding-right: $large-size;
+  border: none;
+  cursor: pointer;
+}
+
+// INPUT
+
+.input {
+  border-radius: $minimal-size;
+  border: none;
+  padding: $small-size;
+  background-color: $white;
+  color: $main-color;
+  transition: $small-time ease;
+  border: 1px solid $main-color;
+  &:focus {
+    outline: none;
+    border: 1px solid $secondary-color;
+  }
+  &:hover {
+    background-color: $ghost-white;
+  }
+  &:active {
+    background-color: $secondary-color;
+  }
+}
