@@ -18,6 +18,9 @@ const profileSlice = createSlice({
     goToRegister: (state) => {
       state.page = "Register";
     },
+    goToDashboard: (state) => {
+      state.page = "Dashboard";
+    },
     // changeEmail: (state, { payload }: PayloadAction<TPayload>) => {
     //   state.email = payload.email;
     // }
@@ -25,4 +28,4 @@ const profileSlice = createSlice({
 });
 
 export const profileReducer = profileSlice.reducer;
-export const { goToLogin, goToRegister } = profileSlice.actions;
+export const { goToLogin, goToRegister, goToDashboard } = profileSlice.actions;

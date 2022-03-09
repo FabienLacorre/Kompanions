@@ -8,6 +8,7 @@ import "./styles/Colors.scss";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
 import { useSelector } from "react-redux";
 // import { goToLogin } from "./redux/pageSelection";
 
@@ -21,6 +22,7 @@ const App = () => {
     <div className="App">
       {page === "Login" && <Login />}
       {page === "Register" && <Register />}
+      {page === "Dashboard" && <Dashboard />}
     </div>
   );
 };
