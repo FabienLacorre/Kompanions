@@ -1,0 +1,17 @@
+@import "./Variables.scss";
+
+.login-body {
+  height: 100vh;
+  background-color: $main-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.login-input-container {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}

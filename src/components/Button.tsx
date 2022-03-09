@@ -5,11 +5,9 @@ type ButtonProps = {
 };
 
 const Button = (props: ButtonProps) => {
+  const rounded = props.rounded === true ? "rounded" : "";
   let color = "main-background";
-  let rounded = "";
-  if (props.rounded === true) {
-    rounded = "rounded";
-  }
+
   if (props.color === "secondary") {
     color = "secondary-background";
   }

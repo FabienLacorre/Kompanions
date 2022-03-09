@@ -1,23 +1,4 @@
-// COLORS
-
-$main-color: #393e46;
-$main-color-hover: #565d69;
-$secondary-color: #4ecca3;
-$secondary-color-hover: #5fe7bb;
-$white: #fff;
-$ghost-white: #fbfbff;
-$light-grey: #eeeeee;
-
-// SIZE
-
-$minimal-size: 4px;
-$small-size: 8px;
-$medium-size: 16px;
-$large-size: 32px;
-
-// TIME
-
-$small-time: 0.2s;
+@import "./Variables.scss";
 
 body {
   margin: 0;
@@ -27,7 +8,7 @@ body {
 }
 
 .App {
-  padding: $medium-size;
+  height: 100%;
 }
 
 // CONTAINER AND SPACE
@@ -46,6 +27,18 @@ body {
 
 .small-right-margin {
   margin-right: $small-size;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-align-center {
+  text-align: center;
 }
 
 .column-display {
@@ -139,4 +132,9 @@ body {
   &:active {
     background-color: $secondary-color;
   }
+}
+
+// COLORS
+.ghost-white {
+  color: $ghost-white;
 }
