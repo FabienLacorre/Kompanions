@@ -10,13 +10,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import { useSelector } from "react-redux";
-// import { goToLogin } from "./redux/pageSelection";
 
 const App = () => {
-  // const dispatch = useDispatch();
-  // const handleEmailChange = () => {
-  // dispatch(goToLogin());
-  // };
   const { page } = useSelector((state: any) => state.profileReducer);
   return (
     <div className="App">
