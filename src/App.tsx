@@ -5,6 +5,10 @@ import "./styles/Utils.scss";
 import "./styles/Input.scss";
 import "./styles/Card.scss";
 import "./styles/Colors.scss";
+import "./styles/Dashboard.scss";
+import "./styles/TopBar.scss";
+
+import Topbar from "./components/TopBar";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -17,7 +21,12 @@ const App = () => {
     <div className="App">
       {page === "Login" && <Login />}
       {page === "Register" && <Register />}
-      {page === "Dashboard" && <Dashboard />}
+      {page === "Dashboard" && (
+        <>
+          <Topbar />
+          <Dashboard />
+        </>
+      )}
     </div>
   );
 };
