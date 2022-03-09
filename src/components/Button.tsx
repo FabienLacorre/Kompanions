@@ -1,4 +1,5 @@
 type ButtonProps = {
+  click?: any;
   color?: string;
   rounded?: boolean;
   children?: any;
@@ -23,7 +24,7 @@ const Button = (props: ButtonProps) => {
   const color = colorSelector(props.color);
 
   return (
-    <button className={`button ${color} ${rounded}`}>
+    <button onClick={props.click} className={`button ${color} ${rounded}`}>
       <span className="bold">{props.children}</span>
     </button>
   );
