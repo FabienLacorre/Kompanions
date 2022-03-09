@@ -5,9 +5,9 @@ const Login = () => {
     <div className="login-body">
       <div className="login-input-container">
         <h1 className="ghost-white">Kompanions</h1>
-        <Input rounded={true} />
+        <Input placeholder="Email" rounded={true} />
         <div className="medium-separator"></div>
-        <Input rounded={true} />
+        <Input placeholder="Mot de passe" rounded={true} />
         <div className="medium-separator"></div>
         <Button color={"secondary"} rounded={true}>
           Se connecter

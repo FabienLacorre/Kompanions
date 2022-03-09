@@ -1,0 +1,22 @@
+@import "./Variables.scss";
+
+.input {
+    border-radius: $minimal-size;
+    border: none;
+    padding: $small-size;
+    background-color: $white;
+    color: $main-color;
+    transition: $small-time ease;
+    border: 1px solid $main-color;
+    &:focus {
+      outline: none;
+      border: 1px solid $secondary-color;
+    }
+    &:hover {
+      background-color: $ghost-white;
+    }
+    &:active {
+      background-color: $secondary-color;
+    }
+  }
+  

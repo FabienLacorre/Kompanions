@@ -1,0 +1,48 @@
+@import "./Variables.scss";
+
+.small-padding-container {
+  width: 100%;
+  padding: $small-size;
+}
+
+.small-separator {
+  height: $small-size;
+}
+
+.medium-separator {
+  height: $medium-size;
+}
+
+.small-right-margin {
+  margin-right: $small-size;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.column-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-display {
+  display: flex;
+  flex-direction: row;
+}
+
+.rounded {
+  border-radius: $medium-size !important;
+}
+
+.bold {
+  font-weight: bold;
+}

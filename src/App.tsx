@@ -1,5 +1,10 @@
 import "./styles/App.scss";
 import "./styles/Login.scss";
+import "./styles/Button.scss";
+import "./styles/Utils.scss";
+import "./styles/Input.scss";
+import "./styles/Card.scss";
+import "./styles/Colors.scss";
 // import Button from "./components/Button";
 // import Card from "./components/Card";
 
