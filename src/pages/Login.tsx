@@ -6,8 +6,8 @@ import { useState } from "react";
 import { saveToken, getToken, loginRequest } from "../request/user";
 const Login = () => {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("fab.lacorre@gmail.com");
+  const [password, setPassword] = useState("test");
 
   const registerRediction = () => {
     dispatch(goToRegister());
@@ -31,15 +31,25 @@ const Login = () => {
     <div className="login-body">
       <div className="login-input-container">
         <h1 className="ghost-white">Kompanions</h1>
-        <Input change={setEmail} placeholder="Email" rounded={true} />
+        <Input
+          change={setEmail}
+          value={email}
+          placeholder="Email"
+          rounded={true}
+        />
         <div className="medium-separator"></div>
-        <Input change={setPassword} placeholder="Mot de passe" rounded={true} />
+        <Input
+          change={setPassword}
+          value={password}
+          placeholder="Mot de passe"
+          rounded={true}
+        />
         <div className="medium-separator"></div>
         <Button click={loginValidation} color={"secondary"} rounded={true}>
           Se connecter
         </Button>
         <div className="medium-separator"></div>
-        <Button click={registerRediction} color={"secondary"} rounded={true}>
+        <Button click={registerRediction} rounded={true}>
           Vous n'avez pas de compte? cliquez ici
         </Button>
       </div>

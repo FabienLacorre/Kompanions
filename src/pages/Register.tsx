@@ -24,7 +24,7 @@ const Login = () => {
           Créer votre compte
         </Button>
         <div className="medium-separator"></div>
-        <Button click={loginRedirection} color={"secondary"} rounded={true}>
+        <Button click={loginRedirection}  rounded={true}>
           Vous avez deja un compte?
         </Button>
       </div>
