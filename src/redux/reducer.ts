@@ -1,7 +1,7 @@
-import { profileReducer } from "./pageSelection";
+import { pageReducer } from "./pageSelection";
 
 const reducer = {
-  profileReducer
+  pageReducer,
   // another reducers (if we have)
 };
 

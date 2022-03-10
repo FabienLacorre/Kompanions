@@ -5,11 +5,12 @@ type TPayload = {
 };
 
 const initialState = {
+  previousPage: [] as string[],
   page: "Login",
 };
 
-const profileSlice = createSlice({
-  name: "profile",
+const pageSlice = createSlice({
+  name: "page",
   initialState: initialState,
   reducers: {
     goToLogin: (state) => {
@@ -19,7 +20,15 @@ const profileSlice = createSlice({
       state.page = "Register";
     },
     goToDashboard: (state) => {
+      state.previousPage = [];
       state.page = "Dashboard";
+    },
+    goToAddPet: (state) => {
+      state.previousPage.push(state.page);
+      state.page = "AddPet";
+    },
+    goBack: (state) => {
+      state.page = state.previousPage.pop() || "Dashboard";
     },
     // changeEmail: (state, { payload }: PayloadAction<TPayload>) => {
     //   state.email = payload.email;
@@ -27,5 +36,6 @@ const profileSlice = createSlice({
   },
 });
 
-export const profileReducer = profileSlice.reducer;
-export const { goToLogin, goToRegister, goToDashboard } = profileSlice.actions;
+export const pageReducer = pageSlice.reducer;
+export const { goToLogin, goToRegister, goToDashboard, goToAddPet, goBack } =
+  pageSlice.actions;
