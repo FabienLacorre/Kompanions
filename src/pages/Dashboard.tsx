@@ -17,9 +17,16 @@ const Dashboard = () => {
   return (
     <div className="dashboard-body">
       <h1>Dashboard</h1>
-      {pets.map((e: any) => (
-        <Card title={e.name}></Card>
-      ))}
+      <div className="card-container">
+        {pets.map((e: any) => (
+          <>
+          <div style={{marginRight: 10, marginBottom: 10}}>
+          <Card title={e.name}></Card>
+          </div>
+            
+          </>
+        ))}
+      </div>
     </div>
   );
 };

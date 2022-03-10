@@ -1,15 +1,19 @@
 @import "./Variables.scss";
 
 .card-image {
-    border: 1px solid $light-grey;
-    overflow: hidden;
-    border-radius: $minimal-size;
-    background-color: $white;
-    max-width: 286px;
-    .image {
-      height: 200px;
-      width: 100%;
-      background-color: grey;
-    }
+  @media screen and (max-width: $phone-size) {
+    width: 100%;
   }
-  
+  @media screen and (min-width: $phone-size) {
+    width: 290px;
+  }
+  border: 1px solid $light-grey;
+  overflow: hidden;
+  border-radius: $minimal-size;
+
+  .image {
+    height: 200px;
+    width: 100%;
+    background-color: grey;
+  }
+}

@@ -1,5 +1,21 @@
 @import "./Variables.scss";
 
 .dashboard-body {
-    background-color: $ghost-white;
+  background-color: $ghost-white;
+  padding: $medium-size;
+}
+
+.card-container {
+  // PHONE
+  @media screen and (max-width: $phone-size) {
+    width: 100%;
+  }
+  // DESKTOP
+  @media screen and (min-width: $phone-size) {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 }
