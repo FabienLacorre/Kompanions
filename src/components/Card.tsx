@@ -2,6 +2,7 @@ import Button from "./Button";
 
 type CardProps = {
   title: string;
+  removeItem?: any;
 };
 
 const Card = (props: CardProps) => {
@@ -17,8 +18,10 @@ const Card = (props: CardProps) => {
           bulk of the card's content.
         </span>
       </div> */}
-      <div className="small-padding-container ">
+      <div className="small-padding-container row-display">
         <Button>Détails</Button>
+        <div className="small-right-margin" />
+        <Button click={props.removeItem}>Supprimer</Button>
       </div>
     </div>
   );

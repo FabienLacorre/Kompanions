@@ -37,18 +37,18 @@ const Login = () => {
           placeholder="Email"
           rounded={true}
         />
-        <div className="medium-separator"></div>
+        <div className="medium-separator"/>
         <Input
           change={setPassword}
           value={password}
           placeholder="Mot de passe"
           rounded={true}
         />
-        <div className="medium-separator"></div>
+        <div className="medium-separator"/>
         <Button click={loginValidation} color={"secondary"} rounded={true}>
           Se connecter
         </Button>
-        <div className="medium-separator"></div>
+        <div className="medium-separator"/>
         <Button click={registerRediction} rounded={true}>
           Vous n'avez pas de compte? cliquez ici
         </Button>

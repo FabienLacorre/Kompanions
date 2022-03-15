@@ -7,6 +7,7 @@ import "./styles/Card.scss";
 import "./styles/Colors.scss";
 import "./styles/Dashboard.scss";
 import "./styles/TopBar.scss";
+import "./styles/AddPet.scss";
 
 import Topbar from "./components/TopBar";
 
