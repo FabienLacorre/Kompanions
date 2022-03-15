@@ -2,7 +2,7 @@ import Button from "../components/Button";
 import { useDispatch } from "react-redux";
 import { goToLogin, goBack } from "../redux/pageSelection";
 import { useSelector } from "react-redux";
-import { BsFillCaretLeftFill } from "react-icons/bs";
+import { BsFillCaretLeftFill, BsFillDoorClosedFill } from "react-icons/bs";
 const Topbar = () => {
   const { page } = useSelector((state: any) => state.pageReducer);
   const dispatch = useDispatch();
@@ -18,12 +18,12 @@ const Topbar = () => {
       <div className="topBar-container scroll-item">
         {page !== "Dashboard" && (
           <Button color="secondary" click={backRedirection}>
-           <BsFillCaretLeftFill/>
+            <BsFillCaretLeftFill />
           </Button>
         )}
         Kompanions
         <Button color="secondary" click={loginRedirection}>
-          Déconnexion
+          <BsFillDoorClosedFill />
         </Button>
       </div>
     </div>
