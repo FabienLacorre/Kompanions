@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+type PetPayload = {
+  name: any;
+};
+
 type IdPayload = {
   id: string;
 };
@@ -16,8 +20,11 @@ const selectedPetSlice = createSlice({
     setPetId: (state, { payload }: PayloadAction<IdPayload>) => {
       state.id = payload.id;
     },
+    setPet: (state, { payload }: PayloadAction<PetPayload>) => {
+      state.pet = payload;
+    },
   },
 });
 
 export const selectedPetReducer = selectedPetSlice.reducer;
-export const { setPetId } = selectedPetSlice.actions;
+export const { setPetId, setPet } = selectedPetSlice.actions;

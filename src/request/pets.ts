@@ -8,6 +8,12 @@ const petRequest = () => {
   });
 };
 
+const petByIdRequest = (id: string) => {
+  return axios.get(`${url}/${id}`, {
+    headers: { Authorization: `Bearer ${getToken()}` },
+  });
+};
+
 const addPetRequest = (pet: any) => {
   const { name, adoptionLocation, identificationNumber, birthDate, race } = pet;
   return axios.post(
@@ -29,4 +35,4 @@ const deletePetRequest = (id: string) => {
   });
 };
 
-export { petRequest, addPetRequest, deletePetRequest };
+export { petRequest, addPetRequest, deletePetRequest, petByIdRequest };
