@@ -2,14 +2,25 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import Button from "../components/Button";
 import Input from "../components/Input";
-import { eventsRequest } from "../request/events";
+import {
+  eventsRequest,
+  addEventRequest,
+  deleteEventRequest,
+} from "../request/events";
 import { Table } from "react-bootstrap";
 
-const AddEvent = () => {
+const AddEvent = (props: any) => {
   const [newEvent, setNewEvent] = useState("");
   const [dateEvent, setDateEvent] = useState(
     moment(new Date()).format("YYYY-MM-DD")
   );
+
+  const addEvent = async (event: any) => {
+    const resp = await addEventRequest(event);
+    console.log("ADD EVENT", resp);
+    const newEventsList = props.events.concat([resp.data]);
+    props.setEvents(newEventsList);
+  };
 
   return (
     <div className="column-display">
@@ -27,23 +38,23 @@ const AddEvent = () => {
         onChange={(e) => setDateEvent(e.target.value)}
       />
       <div className="small-separator" />
-      <Button>Ajouter l'evenement</Button>
+      <Button click={() => addEvent({ name: newEvent, date: dateEvent })}>
+        Ajouter l'evenement
+      </Button>
     </div>
   );
 };
 
-const EventList = () => {
-  const [events, setEvents] = useState([]);
-
-  const getEvents = async () => {
-    const resp = await eventsRequest();
-    console.log("EVENT LIST", resp.data);
-    setEvents(resp.data);
+const EventList = (props: any) => {
+  const deleteEvent = async (id: string) => {
+    const resp = await deleteEventRequest(id);
+    console.log("REMOVE EVENT", resp);
+    const index = props.events.findIndex((e: any) => e._id === id);
+    const newEventsList = props.events.filter(
+      (e: any, i: number) => i !== index
+    );
+    props.setEvents(newEventsList);
   };
-
-  useEffect(() => {
-    getEvents();
-  }, []);
 
   return (
     <div>
@@ -58,13 +69,15 @@ const EventList = () => {
           </tr>
         </thead>
         <tbody>
-          {events.map((e: any, index: number) => {
+          {props.events.map((e: any, index: number) => {
             return (
               <tr key={`TABLE_RACE_${index}`}>
                 <td>{e.name}</td>
                 <td>{moment(e.date).format("DD/MM/YYYY")}</td>
                 <td>
-                  <Button color="alert">Supprimer</Button>
+                  <Button click={() => deleteEvent(e._id)} color="alert">
+                    Supprimer
+                  </Button>
                 </td>
               </tr>
             );
@@ -76,12 +89,24 @@ const EventList = () => {
 };
 
 const Event = () => {
+  const [events, setEvents] = useState([]);
+
+  const getEvents = async () => {
+    const resp = await eventsRequest();
+    console.log("EVENT LIST", resp.data);
+    setEvents(resp.data);
+  };
+
+  useEffect(() => {
+    getEvents();
+  }, []);
+
   return (
     <div className="event-body animated-page">
       <h1 className="bold">Evenements </h1>
-      <AddEvent />
+      <AddEvent setEvents={setEvents} events={events} />
       <hr />
-      <EventList />
+      <EventList setEvents={setEvents} events={events} />
     </div>
   );
 };

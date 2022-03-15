@@ -8,4 +8,21 @@ const eventsRequest = () => {
   });
 };
 
-export { eventsRequest };
+const deleteEventRequest = (id: string) => {
+  return axios.delete(`${url}/delete/${id}`, {
+    headers: { Authorization: `Bearer ${getToken()}` },
+  });
+};
+
+const addEventRequest = (event: any) => {
+  const { name, date } = event;
+  return axios.post(
+    `${url}/add`,
+    {
+      name,
+      date,
+    },
+    { headers: { Authorization: `Bearer ${getToken()}` } }
+  );
+};
+export { eventsRequest, addEventRequest, deleteEventRequest };
