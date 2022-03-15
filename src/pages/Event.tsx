@@ -78,7 +78,7 @@ const EventList = () => {
 const Event = () => {
   return (
     <div className="event-body animated-page">
-      <h1>EVENT </h1>
+      <h1 className="bold">Evenements </h1>
       <AddEvent />
       <hr />
       <EventList />

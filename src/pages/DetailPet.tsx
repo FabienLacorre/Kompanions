@@ -29,7 +29,7 @@ const DetailPet = () => {
 
   return (
     <div className="detail-pet-body animated-page">
-      <h1>{pet.name}</h1>
+      <h1 className="bold">{pet.name}</h1>
       <div className="column-display">
         <Button>Modifier</Button>
         <div className="small-separator" />

@@ -100,7 +100,7 @@ const UserManagement = () => {
 const Administration = () => {
   return (
     <div className="administration-body animated-page">
-      <h1>Administration</h1>
+      <h1 className="bold">Administration</h1>
       <hr />
       <UserManagement />
       <hr />

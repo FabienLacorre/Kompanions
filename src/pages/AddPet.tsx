@@ -45,7 +45,7 @@ const AddPet = () => {
 
   return (
     <div className="addPet-body animated-page">
-      <h1>AddPet</h1>
+      <h1 className="bold">Ajouter un Kompanion</h1>
 
       <div className="column-display">
         <Input value={petName} change={setPetName} placeholder="Nom" />
