@@ -36,7 +36,7 @@ const AddPet = () => {
 
   const addPetValidation = () => {
     console.log("petName", petName);
-      console.log("petNumber", petNumber);
+    console.log("petNumber", petNumber);
     console.log("petLocation", petLocation);
     console.log("petBirthDate", petBirthDate);
     console.log("petRace", petRace);

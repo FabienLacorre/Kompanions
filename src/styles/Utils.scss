@@ -54,14 +54,45 @@
   animation-timing-function: ease-in-out;
 }
 
+.scroll-item {
+  animation-name: scrollin;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scrollin {
+  0% {
+    transform: translateY(-100%);
+  }
+  80% {
+    transform: translateY(0%);
+  }
+  90% {
+    transform: translateY(-2%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 @keyframes slidein {
   0% {
     transform: translateX(-100%);
   }
-  80%{
+  80% {
     transform: translateX(0%);
   }
-  90%{
+  90% {
     transform: translateX(-2%);
   }
   100% {

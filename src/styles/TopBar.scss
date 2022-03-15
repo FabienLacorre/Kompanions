@@ -1,14 +1,18 @@
 @import "./Variables.scss";
 
 .topBar {
-    height: 60px;
-    background-color: $main-color;
-    color: $white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: $medium-size;
-    padding-right: $medium-size;
-    align-items: center;
-    margin-bottom: $medium-size;
+  height: 60px;
+  background-color: $main-color;
+  color: $white;
+}
+
+.topBar-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: $medium-size;
+  padding-right: $medium-size;
+  align-items: center;
+  margin-bottom: $medium-size;
 }

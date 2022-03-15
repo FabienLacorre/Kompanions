@@ -14,16 +14,18 @@ const Topbar = () => {
     dispatch(goBack());
   };
   return (
-    <div className="topBar">
-      {page !== "Dashboard" && (
-        <Button color="secondary" click={backRedirection}>
-          GO BACK
+    <div className="topBar ">
+      <div className="topBar-container scroll-item">
+        {page !== "Dashboard" && (
+          <Button color="secondary" click={backRedirection}>
+            GO BACK
+          </Button>
+        )}
+        Kompanions
+        <Button color="secondary" click={loginRedirection}>
+          Déconnexion
         </Button>
-      )}
-      Kompanions
-      <Button color="secondary" click={loginRedirection}>
-        Déconnexion
-      </Button>
+      </div>
     </div>
   );
 };
