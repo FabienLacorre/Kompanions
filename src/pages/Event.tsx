@@ -8,6 +8,7 @@ import {
   deleteEventRequest,
 } from "../request/events";
 import { Table } from "react-bootstrap";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const AddEvent = (props: any) => {
   const [newEvent, setNewEvent] = useState("");
@@ -76,7 +77,7 @@ const EventList = (props: any) => {
                 <td>{moment(e.date).format("DD/MM/YYYY")}</td>
                 <td>
                   <Button click={() => deleteEvent(e._id)} color="alert">
-                    Supprimer
+                    <BsFillTrashFill />
                   </Button>
                 </td>
               </tr>

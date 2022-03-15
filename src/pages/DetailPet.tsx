@@ -36,7 +36,7 @@ const DetailPet = () => {
         <Button click={eventRedirection}>Evenements</Button>
         <div className="small-separator" />
         <div className="image">
-          <img src="/image/placeholder.png" alt="" />
+          <img src="https://picsum.photos/id/237/200/300" alt="" />
         </div>
         <div className="small-separator" />
         <span>Id: {id}</span>

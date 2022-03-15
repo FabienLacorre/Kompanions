@@ -11,7 +11,7 @@ const Card = (props: CardProps) => {
   return (
     <div className="card-image">
       <div className="image">
-        <img src="/image/placeholder.png" alt="" />
+        <img src="https://picsum.photos/id/237/200/300" alt="" />
       </div>
       <div className="small-padding-container ">
         <span className="bold">{props.title}</span>

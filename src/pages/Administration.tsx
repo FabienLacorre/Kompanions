@@ -5,6 +5,7 @@ import Input from "../components/Input";
 import { raceRequest } from "../request/races";
 import { getAllUsersRequest } from "../request/user";
 import { Table } from "react-bootstrap";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const RaceManagement = () => {
   const [newRace, setNewRace] = useState("");
@@ -33,7 +34,7 @@ const RaceManagement = () => {
       <div className="small-separator" />
       <Button click={() => addRace(newRace)}>Submit new race</Button>
       <div className="small-separator" />
-       <Table striped bordered hover>
+      <Table striped bordered hover>
         <thead>
           <tr style={{ textAlign: "left" }}>
             <th>Nom</th>
@@ -46,7 +47,9 @@ const RaceManagement = () => {
               <tr key={`TABLE_RACE_${index}`}>
                 <td>{e.name}</td>
                 <td>
-                  <Button color="alert">Remove</Button>
+                  <Button color="alert">
+                    <BsFillTrashFill />
+                  </Button>
                 </td>
               </tr>
             );
@@ -73,7 +76,7 @@ const UserManagement = () => {
     <div className="column-display">
       <span className="bold">USERS</span>
       <div className="small-separator" />{" "}
-       <Table striped bordered hover>
+      <Table striped bordered hover>
         <thead>
           <tr style={{ textAlign: "left" }}>
             <th>email</th>
@@ -86,7 +89,9 @@ const UserManagement = () => {
               <tr key={`TABLE_USER_${index}`}>
                 <td>{e.email}</td>
                 <td>
-                  <Button color="alert">Remove</Button>
+                  <Button color="alert">
+                    <BsFillTrashFill />
+                  </Button>
                 </td>
               </tr>
             );

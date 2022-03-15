@@ -2,7 +2,7 @@ import Button from "../components/Button";
 import { useDispatch } from "react-redux";
 import { goToLogin, goBack } from "../redux/pageSelection";
 import { useSelector } from "react-redux";
-
+import { BsFillCaretLeftFill } from "react-icons/bs";
 const Topbar = () => {
   const { page } = useSelector((state: any) => state.pageReducer);
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Topbar = () => {
       <div className="topBar-container scroll-item">
         {page !== "Dashboard" && (
           <Button color="secondary" click={backRedirection}>
-            Retour
+           <BsFillCaretLeftFill/>
           </Button>
         )}
         Kompanions
