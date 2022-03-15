@@ -4,6 +4,7 @@ import { addRaceRequest } from "../request/races";
 import Input from "../components/Input";
 import { raceRequest } from "../request/races";
 import { getAllUsersRequest } from "../request/user";
+import { Table } from "react-bootstrap";
 
 const RaceManagement = () => {
   const [newRace, setNewRace] = useState("");
@@ -32,7 +33,7 @@ const RaceManagement = () => {
       <div className="small-separator" />
       <Button click={() => addRace(newRace)}>Submit new race</Button>
       <div className="small-separator" />
-      <table>
+       <Table striped bordered hover>
         <thead>
           <tr style={{ textAlign: "left" }}>
             <th>Nom</th>
@@ -51,7 +52,7 @@ const RaceManagement = () => {
             );
           })}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };
@@ -72,7 +73,7 @@ const UserManagement = () => {
     <div className="column-display">
       <span className="bold">USERS</span>
       <div className="small-separator" />{" "}
-      <table>
+       <Table striped bordered hover>
         <thead>
           <tr style={{ textAlign: "left" }}>
             <th>email</th>
@@ -91,7 +92,7 @@ const UserManagement = () => {
             );
           })}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };

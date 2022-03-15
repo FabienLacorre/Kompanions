@@ -10,6 +10,9 @@ import "./styles/TopBar.scss";
 import "./styles/AddPet.scss";
 import "./styles/Administration.scss";
 import "./styles/DetailPet.scss";
+import "./styles/Event.scss";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Topbar from "./components/TopBar";
 import Login from "./pages/Login";
@@ -18,6 +21,7 @@ import Dashboard from "./pages/Dashboard";
 import AddPet from "./pages/AddPet";
 import Administration from "./pages/Administration";
 import DetailPet from "./pages/DetailPet";
+import Event from "./pages/Event";
 
 import { useSelector } from "react-redux";
 
@@ -53,6 +57,13 @@ const App = () => {
           <Topbar />
           <div style={{ height: 60 }} />
           <DetailPet />
+        </>
+      )}
+      {page === "Event" && (
+        <>
+          <Topbar />
+          <div style={{ height: 60 }} />
+          <Event />
         </>
       )}
     </div>

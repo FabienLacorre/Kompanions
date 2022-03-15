@@ -5,6 +5,7 @@ import { setPet } from "../redux/selectedPet";
 import { useDispatch } from "react-redux";
 import Button from "../components/Button";
 import moment from "moment";
+import { goToEvent } from "../redux/pageSelection";
 
 const DetailPet = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,10 @@ const DetailPet = () => {
     const resp = await petByIdRequest(id);
     console.log("PET BY ID", resp.data);
     dispatch(setPet(resp.data));
+  };
+
+  const eventRedirection = () => {
+    dispatch(goToEvent());
   };
 
   useEffect(() => {
@@ -28,7 +33,7 @@ const DetailPet = () => {
       <div className="column-display">
         <Button>Modifier</Button>
         <div className="small-separator" />
-        <Button>Evenements</Button>
+        <Button click={eventRedirection}>Evenements</Button>
         <div className="small-separator" />
         <div className="image">
           <img src="/image/placeholder.png" alt="" />

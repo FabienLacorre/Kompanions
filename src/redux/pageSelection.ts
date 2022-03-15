@@ -34,6 +34,10 @@ const pageSlice = createSlice({
       state.previousPage.push(state.page);
       state.page = "DetailPet";
     },
+    goToEvent: (state) => {
+      state.previousPage.push(state.page);
+      state.page = "Event";
+    },
   },
 });
 
@@ -45,5 +49,6 @@ export const {
   goToAddPet,
   goToAdministration,
   goToDetailPet,
+  goToEvent,
   goBack,
 } = pageSlice.actions;
