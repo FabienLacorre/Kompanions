@@ -3,6 +3,9 @@ import { useSelector } from "react-redux";
 import { petByIdRequest } from "../request/pets";
 import { setPet } from "../redux/selectedPet";
 import { useDispatch } from "react-redux";
+import Button from "../components/Button";
+import moment from "moment"
+
 const DetailPet = () => {
   const dispatch = useDispatch();
   const { id, pet } = useSelector((state: any) => state.selectedPetReducer);
@@ -27,7 +30,12 @@ const DetailPet = () => {
         <span>Race: {pet.race && pet.race.name}</span>
         <span>Lieux d'adoption: {pet.adoptionLocation}</span>
         <span>Numéro: {pet.identificationNumber}</span>
-        <span>Date de naissance: {pet.birthDate}</span>
+        <span>Date de naissance: {moment(pet.birthDate).format('DD/MM/YYYY')}</span>
+        <div className="small-separator" />
+        <Button>Modifier</Button>
+        <div className="small-separator" />
+        <Button>Evenements</Button>
+        <div className="small-separator" />
       </div>
     </div>
   );
