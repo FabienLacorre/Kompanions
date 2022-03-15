@@ -26,6 +26,10 @@ const DetailPet = () => {
     <div className="detail-pet-body">
       <h1>{pet.name}</h1>
       <div className="column-display">
+        <Button>Modifier</Button>
+        <div className="small-separator" />
+        <Button>Evenements</Button>
+        <div className="small-separator" />
         <div
           className="image"
           style={{ backgroundImage: `url(/image/placeholder.png)` }}
@@ -38,11 +42,6 @@ const DetailPet = () => {
         <span>
           Date de naissance: {moment(pet.birthDate).format("DD/MM/YYYY")}
         </span>
-        <div className="small-separator" />
-        <Button>Modifier</Button>
-        <div className="small-separator" />
-        <Button>Evenements</Button>
-        <div className="small-separator" />
       </div>
     </div>
   );
