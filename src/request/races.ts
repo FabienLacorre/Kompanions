@@ -8,4 +8,12 @@ const raceRequest = () => {
   });
 };
 
-export { raceRequest };
+const addRaceRequest = (name: String) => {
+  return axios.post(
+    `${url}/add`,
+    { name },
+    { headers: { Authorization: `Bearer ${getToken()}` } }
+  );
+};
+
+export { raceRequest, addRaceRequest };

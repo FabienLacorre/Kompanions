@@ -13,6 +13,9 @@ const pageSlice = createSlice({
   name: "page",
   initialState: initialState,
   reducers: {
+    goBack: (state) => {
+      state.page = state.previousPage.pop() || "Dashboard";
+    },
     goToLogin: (state) => {
       state.page = "Login";
     },
@@ -27,9 +30,11 @@ const pageSlice = createSlice({
       state.previousPage.push(state.page);
       state.page = "AddPet";
     },
-    goBack: (state) => {
-      state.page = state.previousPage.pop() || "Dashboard";
+    goToAdministration: (state) => {
+      state.previousPage.push(state.page);
+      state.page = "Administration";
     },
+
     // changeEmail: (state, { payload }: PayloadAction<TPayload>) => {
     //   state.email = payload.email;
     // }
@@ -37,5 +42,11 @@ const pageSlice = createSlice({
 });
 
 export const pageReducer = pageSlice.reducer;
-export const { goToLogin, goToRegister, goToDashboard, goToAddPet, goBack } =
-  pageSlice.actions;
+export const {
+  goToLogin,
+  goToRegister,
+  goToDashboard,
+  goToAddPet,
+  goToAdministration,
+  goBack,
+} = pageSlice.actions;

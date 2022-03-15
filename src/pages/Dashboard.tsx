@@ -3,7 +3,7 @@ import Card from "../components/Card";
 import Button from "../components/Button";
 import { useDispatch } from "react-redux";
 import { petRequest, deletePetRequest } from "../request/pets";
-import { goToAddPet } from "../redux/pageSelection";
+import { goToAddPet, goToAdministration } from "../redux/pageSelection";
 
 const Dashboard = () => {
   const [pets, setPets] = useState([]);
@@ -29,10 +29,17 @@ const Dashboard = () => {
     dispatch(goToAddPet());
   };
 
-  console.log(pets);
+  const administrationRedirection = () => {
+    dispatch(goToAdministration());
+  };
+
   return (
     <div className="dashboard-body">
       <h1>Dashboard</h1>
+      <Button click={administrationRedirection} color="secondary">
+        ADMINISTRATION
+      </Button>
+      <div className="small-separator" />
       <Button click={addPetRedirection}>Ajouter un Kompanion</Button>
       <div className="small-separator" />
       <div className="card-container">
