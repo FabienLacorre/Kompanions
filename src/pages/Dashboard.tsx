@@ -48,7 +48,7 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <div className="column-display">
         <Button click={administrationRedirection} color="secondary">
-          ADMINISTRATION
+          Espace d'aministration
         </Button>
         <div className="small-separator" />
         <Button click={addPetRedirection}>Ajouter un Kompanion</Button>

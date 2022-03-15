@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:8090/user";
+const url = "http://192.168.1.129:8090/user";
 
 const saveToken = (token: string) => {
   localStorage.setItem("token", token);

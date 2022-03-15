@@ -18,7 +18,7 @@ const Topbar = () => {
       <div className="topBar-container scroll-item">
         {page !== "Dashboard" && (
           <Button color="secondary" click={backRedirection}>
-            GO BACK
+            Retour
           </Button>
         )}
         Kompanions

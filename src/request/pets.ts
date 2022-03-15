@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getToken } from "./user";
-const url = "http://localhost:8090/pet";
+const url = "http://192.168.1.129:8090/pet";
 
 const petRequest = () => {
   return axios.get(`${url}`, {

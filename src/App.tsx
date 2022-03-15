@@ -30,24 +30,28 @@ const App = () => {
       {page === "AddPet" && (
         <>
           <Topbar />
+          <div style={{ height: 60 }} />
           <AddPet />
         </>
       )}
       {page === "Dashboard" && (
         <>
           <Topbar />
+          <div style={{ height: 60 }} />
           <Dashboard />
         </>
       )}
       {page === "Administration" && (
         <>
           <Topbar />
+          <div style={{ height: 60 }} />
           <Administration />
         </>
       )}
       {page === "DetailPet" && (
         <>
           <Topbar />
+          <div style={{ height: 60 }} />
           <DetailPet />
         </>
       )}
