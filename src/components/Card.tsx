@@ -10,10 +10,9 @@ type CardProps = {
 const Card = (props: CardProps) => {
   return (
     <div className="card-image">
-      <div
-        className="image"
-        style={{ backgroundImage: `url(/image/placeholder.png)` }}
-      ></div>
+      <div className="image">
+        <img src="/image/placeholder.png" alt="" />
+      </div>
       <div className="small-padding-container ">
         <span className="bold">{props.title}</span>
         <div className="small-separator" />

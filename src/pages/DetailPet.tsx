@@ -30,10 +30,9 @@ const DetailPet = () => {
         <div className="small-separator" />
         <Button>Evenements</Button>
         <div className="small-separator" />
-        <div
-          className="image"
-          style={{ backgroundImage: `url(/image/placeholder.png)` }}
-        ></div>
+        <div className="image">
+          <img src="/image/placeholder.png" alt="" />
+        </div>
         <div className="small-separator" />
         <span>Id: {id}</span>
         <span>Race: {pet.race && pet.race.name}</span>

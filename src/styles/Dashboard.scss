@@ -5,7 +5,7 @@
   padding: $medium-size;
 }
 
-.card-container {
+.cards-container {
   // PHONE
   @media screen and (max-width: $phone-size) {
     width: 100%;
@@ -17,5 +17,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+  }
+}
+
+.card-container {
+  // PHONE
+  @media screen and (max-width: $phone-size) {
+  }
+  //
+  @media screen and (min-width: $phone-size) {
+    margin-right: $small-size;
+    margin-bottom: $small-size;
   }
 }

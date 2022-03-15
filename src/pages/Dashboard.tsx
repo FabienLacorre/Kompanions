@@ -46,18 +46,18 @@ const Dashboard = () => {
   return (
     <div className="dashboard-body">
       <h1>Dashboard</h1>
-      <Button click={administrationRedirection} color="secondary">
-        ADMINISTRATION
-      </Button>
+      <div className="column-display">
+        <Button click={administrationRedirection} color="secondary">
+          ADMINISTRATION
+        </Button>
+        <div className="small-separator" />
+        <Button click={addPetRedirection}>Ajouter un Kompanion</Button>
+      </div>
+
       <div className="small-separator" />
-      <Button click={addPetRedirection}>Ajouter un Kompanion</Button>
-      <div className="small-separator" />
-      <div className="card-container">
+      <div className="cards-container">
         {pets.map((e: any, index: number) => (
-          <div
-            style={{ marginRight: 10, marginBottom: 10 }}
-            key={`CARD_PET_${index}`}
-          >
+          <div className="card-container" key={`CARD_PET_${index}`}>
             <Card
               title={e.name}
               subTitle={e.race.name}
