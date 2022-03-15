@@ -2,6 +2,7 @@ import Button from "./Button";
 
 type CardProps = {
   title: string;
+  subTitle: string;
   removeItem?: any;
 };
 
@@ -11,6 +12,8 @@ const Card = (props: CardProps) => {
       <div className="image"></div>
       <div className="small-padding-container ">
         <span className="bold">{props.title}</span>
+        <div className="small-separator" />
+        <span>{props.subTitle}</span>
       </div>
       {/* <div className="small-padding-container ">
         <span>

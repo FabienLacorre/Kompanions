@@ -41,7 +41,11 @@ const Dashboard = () => {
             style={{ marginRight: 10, marginBottom: 10 }}
             key={`CARD_PET_${index}`}
           >
-            <Card title={e.name} removeItem={() => deletePet(e._id)} />
+            <Card
+              title={e.name}
+              subTitle={e.race.name}
+              removeItem={() => deletePet(e._id)}
+            />
           </div>
         ))}
       </div>
