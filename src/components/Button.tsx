@@ -12,6 +12,9 @@ const colorSelector = (c: string | undefined) => {
     case "secondary":
       color = "secondary-background";
       break;
+    case "alert":
+      color = "alert-background";
+      break;
     default:
       color = "main-background";
       break;

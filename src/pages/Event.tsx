@@ -64,7 +64,7 @@ const EventList = () => {
                 <td>{e.name}</td>
                 <td>{moment(e.date).format("DD/MM/YYYY")}</td>
                 <td>
-                  <Button>Remove</Button>
+                  <Button color="alert">Supprimer</Button>
                 </td>
               </tr>
             );

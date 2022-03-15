@@ -46,7 +46,7 @@ const RaceManagement = () => {
               <tr key={`TABLE_RACE_${index}`}>
                 <td>{e.name}</td>
                 <td>
-                  <Button>Remove</Button>
+                  <Button color="alert">Remove</Button>
                 </td>
               </tr>
             );
@@ -86,7 +86,7 @@ const UserManagement = () => {
               <tr key={`TABLE_USER_${index}`}>
                 <td>{e.email}</td>
                 <td>
-                  <Button>Remove</Button>
+                  <Button color="alert">Remove</Button>
                 </td>
               </tr>
             );

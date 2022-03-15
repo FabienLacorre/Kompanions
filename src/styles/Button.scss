@@ -1,36 +1,47 @@
 @import "./Variables.scss";
 
 .main-background {
-    color: $ghost-white;
+  color: $ghost-white;
+  background-color: $main-color;
+  transition: $small-time ease;
+  &:hover {
+    background-color: $main-color-hover;
+  }
+  &:active {
     background-color: $main-color;
-    transition: $small-time ease;
-    &:hover {
-      background-color: $main-color-hover;
-    }
-    &:active {
-      background-color: $main-color;
-    }
   }
-  
-  .secondary-background {
-    color: $ghost-white;
+}
+
+.secondary-background {
+  color: $ghost-white;
+  background-color: $secondary-color;
+  transition: $small-time ease;
+  &:hover {
+    background-color: $secondary-color-hover;
+  }
+  &:active {
     background-color: $secondary-color;
-    transition: $small-time ease;
-    &:hover {
-      background-color: $secondary-color-hover;
-    }
-    &:active {
-      background-color: $secondary-color;
-    }
   }
-  
-  .button {
-    border-radius: $minimal-size;
-    padding-top: $small-size;
-    padding-bottom: $small-size;
-    padding-left: $large-size;
-    padding-right: $large-size;
-    border: none;
-    cursor: pointer;
+}
+
+.alert-background {
+  color: $ghost-white;
+  background-color: $red;
+  transition: $small-time ease;
+  &:hover {
+    background-color: $red-hover;
   }
-  
+  &:active {
+    background-color: $red;
+  }
+}
+
+.button {
+  border-radius: $minimal-size;
+  padding-top: $small-size;
+  padding-bottom: $small-size;
+  padding-left: $large-size;
+  padding-right: $large-size;
+  border: none;
+  cursor: pointer;
+}
