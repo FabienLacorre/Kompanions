@@ -44,7 +44,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-body">
+    <div className="dashboard-body animated-page">
       <h1>Dashboard</h1>
       <div className="column-display">
         <Button click={administrationRedirection} color="secondary">

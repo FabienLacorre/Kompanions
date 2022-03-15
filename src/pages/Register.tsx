@@ -11,7 +11,7 @@ const Login = () => {
     dispatch(goToDashboard());
   };
   return (
-    <div className="login-body">
+    <div className="login-body animated-page">
       <div className="login-input-container">
         <h1 className="ghost-white">Kompanions</h1>
         <Input placeholder="Email" rounded={true} />

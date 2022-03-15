@@ -24,7 +24,7 @@ const Administration = () => {
   }, []);
 
   return (
-    <div className="administration-body">
+    <div className="administration-body animated-page">
       <h1>Administration</h1>
 
       <hr />
