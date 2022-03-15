@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type TPayload = {
-  page: string;
-};
-
 const initialState = {
   previousPage: [] as string[],
   page: "Login",
@@ -34,10 +30,10 @@ const pageSlice = createSlice({
       state.previousPage.push(state.page);
       state.page = "Administration";
     },
-
-    // changeEmail: (state, { payload }: PayloadAction<TPayload>) => {
-    //   state.email = payload.email;
-    // }
+    goToDetailPet: (state) => {
+      state.previousPage.push(state.page);
+      state.page = "DetailPet";
+    },
   },
 });
 
@@ -48,5 +44,6 @@ export const {
   goToDashboard,
   goToAddPet,
   goToAdministration,
+  goToDetailPet,
   goBack,
 } = pageSlice.actions;

@@ -9,14 +9,16 @@ import "./styles/Dashboard.scss";
 import "./styles/TopBar.scss";
 import "./styles/AddPet.scss";
 import "./styles/Administration.scss";
+import "./styles/DetailPet.scss";
 
 import Topbar from "./components/TopBar";
-
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import AddPet from "./pages/AddPet";
 import Administration from "./pages/Administration";
+import DetailPet from "./pages/DetailPet";
+
 import { useSelector } from "react-redux";
 
 const App = () => {
@@ -41,6 +43,12 @@ const App = () => {
         <>
           <Topbar />
           <Administration />
+        </>
+      )}
+      {page === "DetailPet" && (
+        <>
+          <Topbar />
+          <DetailPet />
         </>
       )}
     </div>

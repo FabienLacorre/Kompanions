@@ -4,6 +4,7 @@ type CardProps = {
   title: string;
   subTitle: string;
   removeItem?: any;
+  redirection?: any;
 };
 
 const Card = (props: CardProps) => {
@@ -15,14 +16,8 @@ const Card = (props: CardProps) => {
         <div className="small-separator" />
         <span>{props.subTitle}</span>
       </div>
-      {/* <div className="small-padding-container ">
-        <span>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </span>
-      </div> */}
       <div className="small-padding-container row-display">
-        <Button>Détails</Button>
+        <Button click={props.redirection}>Détails</Button>
         <div className="small-right-margin" />
         <Button click={props.removeItem}>Supprimer</Button>
       </div>
