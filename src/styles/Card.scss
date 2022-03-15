@@ -10,10 +10,14 @@
   border: 1px solid $light-grey;
   overflow: hidden;
   border-radius: $minimal-size;
+}
 
-  .image {
-    height: 200px;
-    width: 100%;
-    background-color: grey;
-  }
+.image {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+  background-color: grey;
 }

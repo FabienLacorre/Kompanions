@@ -4,7 +4,7 @@ import { petByIdRequest } from "../request/pets";
 import { setPet } from "../redux/selectedPet";
 import { useDispatch } from "react-redux";
 import Button from "../components/Button";
-import moment from "moment"
+import moment from "moment";
 
 const DetailPet = () => {
   const dispatch = useDispatch();
@@ -26,11 +26,18 @@ const DetailPet = () => {
     <div className="detail-pet-body">
       <h1>{pet.name}</h1>
       <div className="column-display">
+        <div
+          className="image"
+          style={{ backgroundImage: `url(/image/placeholder.png)` }}
+        ></div>
+        <div className="small-separator" />
         <span>Id: {id}</span>
         <span>Race: {pet.race && pet.race.name}</span>
         <span>Lieux d'adoption: {pet.adoptionLocation}</span>
         <span>Numéro: {pet.identificationNumber}</span>
-        <span>Date de naissance: {moment(pet.birthDate).format('DD/MM/YYYY')}</span>
+        <span>
+          Date de naissance: {moment(pet.birthDate).format("DD/MM/YYYY")}
+        </span>
         <div className="small-separator" />
         <Button>Modifier</Button>
         <div className="small-separator" />

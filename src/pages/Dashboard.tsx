@@ -42,6 +42,7 @@ const Dashboard = () => {
     dispatch(setPetId({ id }));
     dispatch(goToDetailPet());
   };
+
   return (
     <div className="dashboard-body">
       <h1>Dashboard</h1>

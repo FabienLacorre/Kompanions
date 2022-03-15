@@ -15,5 +15,4 @@ const addRaceRequest = (name: String) => {
     { headers: { Authorization: `Bearer ${getToken()}` } }
   );
 };
-
 export { raceRequest, addRaceRequest };
