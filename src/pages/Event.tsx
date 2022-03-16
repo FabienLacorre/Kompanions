@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import moment from "moment";
 import Button from "../components/Button";
 import Input from "../components/Input";
+import InputNumber from "../components/InputNumber";
+import InputDate from "../components/InputDate";
 import {
-  eventsRequest,
+  eventByPetRequest,
   addEventRequest,
   deleteEventRequest,
 } from "../request/events";
@@ -11,7 +14,10 @@ import { Table } from "react-bootstrap";
 import { BsFillTrashFill } from "react-icons/bs";
 
 const AddEvent = (props: any) => {
+  const { id } = useSelector((state: any) => state.selectedPetReducer);
+
   const [newEvent, setNewEvent] = useState("");
+  const [newEventNumberDays, setNewEventNumberDays] = useState(30);
   const [dateEvent, setDateEvent] = useState(
     moment(new Date()).format("YYYY-MM-DD")
   );
@@ -27,19 +33,36 @@ const AddEvent = (props: any) => {
     <div className="column-display">
       <span className="bold">Ajouter une évènement</span>
       <div className="small-separator" />
+      <span>Nom de l'évènement:</span>
+      <div className="small-separator" />
       <Input
         value={newEvent}
         change={setNewEvent}
         placeholder="Nom de l'évenement"
       />
       <div className="small-separator" />
-      <input
-        type="date"
-        value={dateEvent}
-        onChange={(e) => setDateEvent(e.target.value)}
+      <span>Date de création:</span>
+      <div className="small-separator" />
+      <InputDate value={dateEvent} change={setDateEvent} />
+      <div className="small-separator" />
+      <span>Nombre de jours avant la prochaine répétition:</span>
+      <div className="small-separator" />
+      <InputNumber
+        value={newEventNumberDays}
+        change={setNewEventNumberDays}
+        placeholder="Nom de l'évenement"
       />
       <div className="small-separator" />
-      <Button click={() => addEvent({ name: newEvent, date: dateEvent })}>
+      <Button
+        click={() =>
+          addEvent({
+            name: newEvent,
+            date: dateEvent,
+            numberDays: newEventNumberDays,
+            petId: id,
+          })
+        }
+      >
         Ajouter l'evenement
       </Button>
     </div>
@@ -65,7 +88,7 @@ const EventList = (props: any) => {
         <thead>
           <tr style={{ textAlign: "left" }}>
             <th>Nom</th>
-            <th>Date</th>
+            <th>Prochaine répétition</th>
             <th></th>
           </tr>
         </thead>
@@ -74,9 +97,13 @@ const EventList = (props: any) => {
             return (
               <tr key={`TABLE_RACE_${index}`}>
                 <td>{e.name}</td>
-                <td>{moment(e.date).format("DD/MM/YYYY")}</td>
+                <td>{moment(e.nextDate).format("DD/MM/YYYY")}</td>
                 <td>
-                  <Button click={() => deleteEvent(e._id)} color="alert">
+                  <Button
+                    fullWidth={true}
+                    click={() => deleteEvent(e._id)}
+                    color="alert"
+                  >
                     <BsFillTrashFill />
                   </Button>
                 </td>
@@ -91,9 +118,9 @@ const EventList = (props: any) => {
 
 const Event = () => {
   const [events, setEvents] = useState([]);
-
+  const { id } = useSelector((state: any) => state.selectedPetReducer);
   const getEvents = async () => {
-    const resp = await eventsRequest();
+    const resp = await eventByPetRequest(id);
     console.log("EVENT LIST", resp.data);
     setEvents(resp.data);
   };

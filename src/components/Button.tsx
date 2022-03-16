@@ -3,6 +3,7 @@ type ButtonProps = {
   color?: string;
   rounded?: boolean;
   children?: any;
+  fullWidth?: boolean;
 };
 
 const colorSelector = (c: string | undefined) => {
@@ -25,9 +26,12 @@ const colorSelector = (c: string | undefined) => {
 const Button = (props: ButtonProps) => {
   const rounded = props.rounded === true ? "rounded" : "";
   const color = colorSelector(props.color);
-
+  const fullWidth = props.fullWidth === true ? "full-width" : "";
   return (
-    <button onClick={props.click} className={`button ${color} ${rounded}`}>
+    <button
+      onClick={props.click}
+      className={`button ${color} ${rounded} ${fullWidth}`}
+    >
       <span className="bold">{props.children}</span>
     </button>
   );

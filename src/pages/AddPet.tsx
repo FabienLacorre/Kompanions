@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import Input from "../components/Input";
+import InputDate from "../components/InputDate";
 import { raceRequest } from "../request/races";
 import { addPetRequest } from "../request/pets";
 
@@ -58,11 +59,7 @@ const AddPet = () => {
           placeholder="Lieux d'adoption"
         />
         <div className="small-separator" />
-        <input
-          type="date"
-          value={petBirthDate}
-          onChange={(e) => setPetBirthDate(e.target.value)}
-        />
+        <InputDate value={petBirthDate} change={setPetBirthDate} />
         <div className="small-separator" />
         <select value={petRace} onChange={(e) => setPetRace(e.target.value)}>
           {races.map((e: any, index: number) => {

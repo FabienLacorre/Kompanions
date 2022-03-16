@@ -8,6 +8,12 @@ const eventsRequest = () => {
   });
 };
 
+const eventByPetRequest = (id: string) => {
+  return axios.get(`${url}/pet/${id}`, {
+    headers: { Authorization: `Bearer ${getToken()}` },
+  });
+};
+
 const deleteEventRequest = (id: string) => {
   return axios.delete(`${url}/delete/${id}`, {
     headers: { Authorization: `Bearer ${getToken()}` },
@@ -15,14 +21,21 @@ const deleteEventRequest = (id: string) => {
 };
 
 const addEventRequest = (event: any) => {
-  const { name, date } = event;
+  const { name, date, numberDays, petId } = event;
   return axios.post(
     `${url}/add`,
     {
       name,
       date,
+      numberDays,
+      petId,
     },
     { headers: { Authorization: `Bearer ${getToken()}` } }
   );
 };
-export { eventsRequest, addEventRequest, deleteEventRequest };
+export {
+  eventsRequest,
+  addEventRequest,
+  deleteEventRequest,
+  eventByPetRequest,
+};
